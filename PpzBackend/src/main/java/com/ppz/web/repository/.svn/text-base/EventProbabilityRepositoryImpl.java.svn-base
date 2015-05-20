@@ -1,0 +1,33 @@
+package com.ppz.web.repository;
+
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
+
+import com.ppz.web.entity.EventProbability;
+import com.ppz.web.entity.PossibleEvent;
+
+@Repository(value = "eventProbabilityRepository")
+public class EventProbabilityRepositoryImpl extends AbstractRepository<EventProbability, Long> implements EventProbabilityRepository {
+
+	public Class<EventProbability> getType() {
+		return EventProbability.class;
+	}
+
+	@Override
+	public List<EventProbability> getEventProbabilityList(PossibleEvent possibleEvent) {
+
+		DetachedCriteria crit = DetachedCriteria.forClass(EventProbability.class).add(Restrictions.eq("possibleEvent", possibleEvent));
+		
+		@SuppressWarnings("unchecked")
+		List<EventProbability> results = this.getTemplate().findByCriteria(crit);
+		if (results.size() != 0) {
+			return results;
+		} else {
+			return null;
+		}		
+	}
+
+}

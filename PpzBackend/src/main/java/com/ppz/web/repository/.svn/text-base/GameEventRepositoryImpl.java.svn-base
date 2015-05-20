@@ -1,0 +1,34 @@
+package com.ppz.web.repository;
+
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
+
+import com.ppz.web.entity.Game;
+import com.ppz.web.entity.GameEvent;
+
+@Repository(value = "gameEventRepository")
+public class GameEventRepositoryImpl extends AbstractRepository<GameEvent, Long> implements GameEventRepository {
+
+	@Override
+	public Class<GameEvent> getType() {
+		return GameEvent.class;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<GameEvent> getGameEventListByGame(Game game, Long round) {
+		DetachedCriteria crit = DetachedCriteria.forClass(GameEvent.class).add(Restrictions.eq("game", game));
+		crit.add(Restrictions.eq("occurredDate", round));
+		@SuppressWarnings("rawtypes")
+		List results = getTemplate().findByCriteria(crit);
+		if (results.size() != 0) {
+			return (List<GameEvent>) results;
+		} else {
+			return null;
+		}
+	}
+
+}

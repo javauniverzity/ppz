@@ -1,0 +1,471 @@
+/*
+		CSS Definition
+	  	  
+*/
+
+/*
+		Style reset
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*	End of Style reset	*/
+
+html, body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 16px;
+	background: #F6F6F6;
+	color: #000;
+}
+
+input, button {
+	font-size: 13px;
+}
+
+a {
+	color: #0CAFDC;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+h3 {
+	font-size: 20px;
+	line-height: 22px;
+}
+#content {
+	padding: 10px;
+}
+table {
+	border: 1px solid #dfdfdf;
+}
+table tr th, table tr td {
+	border: 1px solid #dfdfdf;
+	padding: 3px;
+}
+table tr th {
+	font-weight: bold;
+	background: #0CAFDC;
+	color: #fff;
+	border: 1px solid #5E4F48;
+}
+table tr td {
+	background: #E8E8E8;
+}
+table tr.highlightGrey td {
+	background: #DFDFDF;
+	font-weight: bold;
+}
+
+.alignRight {
+	text-align: right;
+}
+.alignCenter {
+	text-align: center;
+}
+
+#header {
+	padding-top: 3px;
+	height: 22px;
+	text-align: left;
+}
+
+#wrapper {
+	margin: 0 auto;
+	text-align: center;
+	width: 1060px;
+}
+#center {
+	background: #fff;
+	border: 1px solid #dedede;
+}
+
+#footer { 
+	width: 1060px;
+	height: 25px;
+	clear: both;
+	color: #333;
+	background: #E0E0E0;
+}
+
+.error {
+	font-weight: bold;
+	color: red;
+}
+
+#leftColumn { 
+	width: 261px;
+	min-height: 750px;
+	float: left;
+	background: #fff;
+	padding-bottom: 15px;
+}
+#leftColumn #logo {
+	width: 100%;
+	height: 130px;
+	border-bottom: 10px solid #0CAFDC;
+	background: url('../img/logo.jpg') no-repeat left top #91BCD7;
+}
+#centerColumn { 
+	float: left;
+	background: #fff;
+	min-height: 350px;
+	width: 534px;
+	min-height: 750px;
+	border: 1px solid #dedede;
+	border-bottom: none;
+	border-top: none;
+	text-align: left;
+	padding-bottom: 15px;
+}
+
+#rightColumn {
+	background: #fff;
+	width: 251px;
+	min-height: 740px;
+	float: left;
+	padding: 5px;
+	padding-bottom: 15px;
+}
+
+/*	page ppz	*/
+#ppz {
+	text-align: left;
+}
+
+#leftColumn #time {
+	border-bottom: 1px solid #dedede;
+	padding: 5px;
+	position: relative;
+}
+#leftColumn #time img#runningIndicator {
+	position: absolute;
+	top: 5px;
+	right: 15px;
+}
+#leftColumn #time #monthAndYear {
+	font-size: 16px;
+	line-height: 25px;
+}
+#leftColumn #time #controlButtons {
+	margin-top: 15px;
+}
+#leftColumn #events {
+	width: 211px;
+	padding: 5px;
+}
+#leftColumn #eventTable {
+	width: 251px;
+	table-layout: fixed;
+}
+#leftColumn #eventTable th.date {
+	width: 75px;
+}
+#leftColumn #eventTable tr.red td {
+	background: red;
+}
+
+#familySetup #centerColumn {
+	width: 746px;
+}
+#centerColumn #surroundings {
+	height: 250px;
+	position: relative;
+}
+#centerColumn #surroundings img {
+	cursor: pointer;
+}
+#centerColumn #surroundings #carIcon {
+	position: absolute;
+	bottom: 0;
+	left: 5px;
+}
+#centerColumn #surroundings #carIcon img {
+	width: 140px;
+}
+#centerColumn #surroundings #carIcon {
+	position: absolute;
+	bottom: 10px;
+	left: 70px;
+}
+
+#centerColumn #surroundings #houseIcon {
+	position: absolute;
+	bottom: 0;
+	right: 5px;
+}
+#centerColumn #surroundings #houseIcon img {
+	width: 156px;
+}
+
+#centerColumn #surroundings #avatarIcon {
+	position: absolute;
+	top: 5px;
+	left: 320px;
+}
+#centerColumn #surroundings #avatarIcon img {
+	width: 96px;
+}
+
+#centerColumn #surroundings #partnerIcon {
+	position: absolute;
+	top: 5px;
+	left: 220px;
+}
+#centerColumn #surroundings #partnerIcon img {
+	width: 96px;
+}
+
+#centerColumn #surroundings #child1Icon {
+	position: absolute;
+	top: 60px;
+	left: 130px;
+}
+#centerColumn #surroundings #child1Icon img,
+#centerColumn #surroundings #child2Icon img {
+	width: 80px;
+}
+#centerColumn #surroundings #child2Icon {
+	position: absolute;
+	top: 60px;
+	left: 45px;
+}
+
+#centerColumn #surroundings #dogIcon {
+	position: absolute;
+	bottom: 35px;
+	right: 200px;
+}
+#centerColumn #surroundings #dogIcon img {
+	width: 68px;
+}
+
+#centerColumn #detail {
+	height: 150px;
+	border-top: 1px solid #dedede;
+	border-bottom: 1px solid #dedede;
+	padding: 5px;
+}
+#centerColumn #detail #detailObject {
+	float: left;
+	width: 222px;
+	padding-left: 5px;	
+}
+#centerColumn #detail #detailObject table {
+	width: 100%;
+	margin-bottom: 3px;
+}
+
+#centerColumn #detail #detailEvent {
+	float: right;
+	width: 280px;
+	height: 140px;
+	padding-right: 5px;
+}
+#centerColumn #detail #detailEvent textarea {
+	width: 100%;
+	height: 125px;
+	resize: none;
+	margin-bottom: 3px;
+}
+
+#centerColumn #budget {
+	padding: 5px;
+}
+#centerColumn #budget table {
+	width: 100%;
+}
+#centerColumn #budget #distinct {
+	margin-top: 20px;
+	width: 214px;
+	border: 1px solid #000;
+	padding: 20px;
+	background: #0CAFDC;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	color: #fff;
+}
+
+#rightColumn #accountBalance {
+	margin: 5px 0;
+	padding: 5px 0;
+	font-size: 18px;
+}
+
+#rightColumn #bankProducts table {
+	width: 100%;
+}
+
+#rightColumn #insuranceProducts table {
+	width: 100%;
+}
+
+#familySetup #description {
+	height: 250px;
+}
+#familySetup #centerColumn {
+	width: 796px;
+	border-right: none;
+}
+#familySetup #tabs li {
+	display: inline;
+	padding: 5px 10px;
+	margin: 0 5px;
+	background: #dedede;
+	border: 1px solid #ccc;
+	border-bottom: none;
+}
+#familySetup #tabs li.active {
+	background: #fff;
+}
+#familySetup #tabs li:hover {
+	background: #fff;
+}
+#familySetup #settings {
+	padding: 5px;
+	margin-top: 4px;
+	height: 200px;
+	background: #fff;
+	border-top: 1px solid #ccc;
+}
+#index {
+	padding-top: 40px;
+}
+#index div.bigbig {
+	font-size : 25px;
+}
+
+#index div.big {
+	font-size : 18px;
+}
+#code {
+	padding-top: 40px;
+	text-align: left;
+	margin: 0 auto;
+	width: 400px;
+}
+#code ul li {
+	list-style-type: disc;
+	list-style-position: inside;
+}
+#login {
+	padding: 20px 0;
+	text-align: left;
+}
+#login table.login {
+	margin: 0 auto;
+	border: 1px solid #5E4F48;
+	width: 340px;
+}
+#login table.login tr th {
+	text-align: center;
+}
+#login table.login tr td {
+	background: #fff;
+	border: none;
+}
+
+#avatarSetup #centerColumn {
+	width: 796px;
+	border-right: none;
+}
+#avatarSetup #centerColumn table {
+	width: 350px;
+}
+#avatarSetup #description {
+	height: 100px;
+}
+#avatarSetup #avatarCreate table {
+	margin: 0 auto;
+}
+#selectavatar {
+	width: 960px;
+	margin: 0 auto;
+}
+#selectavatar .avatarType {
+	width: 300px;
+	height: 110px;
+	position: relative;
+	float: left;
+	margin: 15px 10px;;
+}
+#selectavatar .avatarType:hover {
+	background: #dedede;
+}
+#selectavatar .avatarType .avatarData {
+	text-align: left;
+	position: relative;
+	margin-left: 25px;
+	margin-top: 35px;
+}
+#selectavatar .avatarType .avatarData input {
+	position: absolute;
+	left: -23px;
+	top: 5px;
+}
+#selectavatar .avatarType img {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	height: 100px;
+}
+#selectavatar #overview {
+	text-align: left;
+	padding: 20px 0; 
+}
+#selectavatar #overview .data {
+	width: 250px;
+	height: 40px;
+	float: left;
+}
+#index .iFrame {
+	height: 352px;
+	margin: 20px 0;
+}
+strong {
+	font-weight: bold;
+}

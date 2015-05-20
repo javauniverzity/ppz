@@ -1,0 +1,22 @@
+package com.ppz.web.repository;
+
+import java.util.List;
+
+import com.ppz.web.entity.Avatar;
+import com.ppz.web.entity.FinancialAssets;
+
+/**
+ * REPOSITORY object for entity FinancialAssets.
+ * 
+ * @author Petr Hirs
+ * 
+ */
+public interface FinancialAssetsRepository extends GenericRepository<FinancialAssets, Long> {
+
+	public void createFinancialAssets(FinancialAssets financialAssets);
+
+	public FinancialAssets updateFinancialAssets(FinancialAssets financialAssets);
+
+	public List<FinancialAssets> getFinancialAssetsByAvatar(Avatar avatar);
+
+}

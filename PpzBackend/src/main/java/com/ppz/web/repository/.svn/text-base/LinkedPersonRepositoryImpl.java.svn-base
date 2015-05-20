@@ -1,0 +1,35 @@
+package com.ppz.web.repository;
+
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
+
+import com.ppz.web.entity.Avatar;
+import com.ppz.web.entity.LinkedPerson;
+
+@Repository(value = "linkedPersonRepository")
+public class LinkedPersonRepositoryImpl extends AbstractRepository<LinkedPerson, Long> implements LinkedPersonRepository {
+
+	@Override
+	public Class<LinkedPerson> getType() {
+		return LinkedPerson.class;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<LinkedPerson> getLinkedPersonListByAvatar(Avatar avatar, Long round) {
+		DetachedCriteria crit = DetachedCriteria.forClass(LinkedPerson.class).add(Restrictions.eq("avatar", avatar));
+		crit.add(Restrictions.eq("roundNo", round));
+		@SuppressWarnings("rawtypes")
+		List results = getTemplate().findByCriteria(crit);
+		if (results.size() != 0) {
+			return (List<LinkedPerson>) results;
+		} else {
+			return null;
+		}
+	}
+
+
+}

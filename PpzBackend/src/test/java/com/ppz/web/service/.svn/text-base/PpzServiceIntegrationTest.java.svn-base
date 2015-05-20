@@ -1,0 +1,310 @@
+package com.ppz.web.service;
+
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ppz.web.component.KomendiusComponent;
+import com.ppz.web.entity.Advisor;
+import com.ppz.web.entity.Avatar;
+import com.ppz.web.entity.EventImpact;
+import com.ppz.web.entity.EventProbability;
+import com.ppz.web.entity.FinancialAssets;
+import com.ppz.web.entity.Game;
+import com.ppz.web.entity.GameCode;
+import com.ppz.web.entity.LinkedPerson;
+import com.ppz.web.entity.NonFinancialAssets;
+import com.ppz.web.entity.PossibleEvent;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration({ "classpath:applicationContext-backend.xml" })
+@Transactional
+@TransactionConfiguration(transactionManager = "transactionManager")
+public class PpzServiceIntegrationTest {
+
+	@Autowired
+	private PpzService ppzService;
+
+	@Autowired
+	private KomendiusComponent komendius;
+	
+	// TODO: remove this
+//	@Test
+//	@Rollback(false)
+//	public void testNoTestJustCreateData() {
+//
+//		// Create 3 advisors
+//		//
+//		Advisor advisor = new Advisor();
+//		advisor.setName("Pavel");
+//		ppzService.createAdvisor(advisor);
+//
+//		advisor = new Advisor();
+//		advisor.setName("Petr");
+//		ppzService.createAdvisor(advisor);
+//
+//		advisor = new Advisor();
+//		advisor.setName("Honza");
+//		ppzService.createAdvisor(advisor);
+//
+//		// Create 2 GameCodes for the first one advisor
+//		//
+//		List<Advisor> advisorList = ppzService.getAdvisorList();
+//		if (advisorList != null && advisorList.size() > 0) {
+//
+//			GameCode gameCode = new GameCode();
+//			gameCode.setAdvisor(advisorList.get(0));
+//			gameCode.setAlreadyPlayedGamesCount(5L);
+//			gameCode.setAvailableGamesCount(300L);
+//			gameCode.setCreated(new Date());
+//			gameCode.setCode("test");
+//			gameCode.setLatestPlayedGameDate(new Date());
+//			gameCode.setUser(null);
+//			ppzService.createGameCode(gameCode);
+//
+//			gameCode = new GameCode();
+//			gameCode.setAdvisor(advisorList.get(0));
+//			gameCode.setAlreadyPlayedGamesCount(20L);
+//			gameCode.setAvailableGamesCount(200L);
+//			gameCode.setCreated(new Date());
+//			// generate unique game code
+//			// gameCode.setCode("TestGameCode2");
+//			gameCode.setLatestPlayedGameDate(new Date());
+//			gameCode.setUser(null);
+//			ppzService.createGameCode(gameCode);
+//
+//			// Create one Avatar for Game
+//			//
+//			Avatar avatar = new Avatar();
+//			avatar.setName("TestJUnitAvatar");
+//			avatar.setAge(50);
+//			avatar.setAlive(Boolean.TRUE);
+//
+//			avatar.setClothesCosts(BigDecimal.valueOf(2000L));
+//			avatar.setEnergyCosts(BigDecimal.valueOf(2000L));
+//			avatar.setFoodCosts(BigDecimal.valueOf(5000L));
+//			avatar.setFreeTimeCosts(BigDecimal.valueOf(3000L));
+//			avatar.setLeaseCosts(BigDecimal.valueOf(8000L));
+//			avatar.setPhoneCosts(BigDecimal.valueOf(200L));
+//			avatar.setSmokeCosts(BigDecimal.valueOf(800L));
+//			avatar.setTrafficCosts(BigDecimal.valueOf(500L));
+//			avatar.setVacationCosts(BigDecimal.valueOf(20000L));
+//			avatar.setOtherCosts(BigDecimal.valueOf(5000L));
+//
+//			avatar.setIncome(BigDecimal.valueOf(30000L));
+//			avatar.setOtherIncome(BigDecimal.valueOf(5000L));
+//
+//			avatar.setTemplate(Boolean.FALSE);
+//			ppzService.createAvatar(avatar);
+//
+//			Avatar newAvatarForGame = ppzService.getAvatar(1L);
+//
+//			// Create one Game for the gameCode with id 1
+//			//
+//			Game game = new Game();
+//			game.setActualDate(new Date());
+//			game.setLastPlayDate(new Date());
+//			game.setName("JUnitTestGame");
+//			game.setRoundPlayed(6L);
+//			game.setStatus(Game.GAME_STATUS_IN_PLAY);
+//			game.setAvatar(newAvatarForGame);
+//			ppzService.createGame(game);
+//
+//			GameCode gameCodeForGame = ppzService.getGameCode(1L);
+//			gameCodeForGame.setGame(game);
+//
+//			// 
+//			// create financial assets for Avatar
+//			
+//			FinancialAssets fa = new FinancialAssets();
+//			fa.setAvatar(newAvatarForGame);
+//			fa.setValue(BigDecimal.valueOf(20000L));
+//			fa.setType(0);
+//			ppzService.createFinancialAssets(fa);
+//			fa = new FinancialAssets();
+//			fa.setAvatar(newAvatarForGame);
+//			fa.setValue(BigDecimal.valueOf(30000L));
+//			fa.setType(1);
+//			ppzService.createFinancialAssets(fa);
+//		
+//			// 
+//			// create non financial assets for Avatar
+//
+//			NonFinancialAssets nfa = new NonFinancialAssets();
+//			nfa.setAvatar(newAvatarForGame);
+//			nfa.setLastTryToRent(null);
+//			nfa.setLastTryToSold(null);
+//			nfa.setName("Dum na vysočině");
+//			nfa.setOriginDate(new Date());
+//			nfa.setRegularlyMonthlyExpenses(BigDecimal.valueOf(14000));
+//			nfa.setRegularlyMonthlyIncome(BigDecimal.valueOf(0));
+//			nfa.setSubType(NonFinancialAssets.SUBTYPE_REALTY_SMALL);
+//			nfa.setType(NonFinancialAssets.TYPE_REALTY);
+//			ppzService.createNonFinancialAssets(nfa);
+//			
+//			nfa = new NonFinancialAssets();
+//			nfa.setAvatar(newAvatarForGame);
+//			nfa.setLastTryToRent(null);
+//			nfa.setLastTryToSold(null);
+//			nfa.setName("Auto Peugeot");
+//			nfa.setOriginDate(new Date());
+//			nfa.setRegularlyMonthlyExpenses(BigDecimal.valueOf(3000));
+//			nfa.setRegularlyMonthlyIncome(BigDecimal.valueOf(500));
+//			nfa.setSubType(NonFinancialAssets.SUBTYPE_CAR_LOWER_CLASS);
+//			nfa.setType(NonFinancialAssets.TYPE_CAR);
+//			ppzService.createNonFinancialAssets(nfa);
+//			
+//			// 
+//			// create linked persons for Avatar
+//
+//			LinkedPerson lp = new LinkedPerson();
+//			lp.setAge(24L);
+//			lp.setAvatar(newAvatarForGame);
+//			lp.setExpenses(BigDecimal.valueOf(5L));
+//			lp.setType(LinkedPerson.PERSON_TYPE_DOG);
+//			lp.setRoundNo(0L);
+//			ppzService.createLinkedPerson(lp);
+//			lp = new LinkedPerson();
+//			lp.setAge(60L);
+//			lp.setRoundNo(0L);
+//			lp.setAvatar(newAvatarForGame);
+//			lp.setExpenses(BigDecimal.valueOf(2500L));
+//			lp.setType(LinkedPerson.PERSON_TYPE_CHILD);
+//			ppzService.createLinkedPerson(lp);
+//			
+//		}
+//		
+//		PossibleEvent po = new PossibleEvent();
+//		//po.setPossibleEventId(possibleEventId);
+//		po.setRootDecision(PossibleEvent.POSSIBLE_EVENT_ROOT_DECISION_FAMILY);
+//		po.setDecisionType(LinkedPerson.PERSON_TYPE_DOG);
+//		po.setAssetsType(null);
+//		po.setName("Úmrtí psa");
+//		po.setNeedDecision(Boolean.FALSE);
+//		po.setStopper(Boolean.FALSE);
+//		ppzService.createPossibleEvent(po);
+//		
+//		// create some event probabilities
+//		
+//		EventProbability ep = null;
+//		ep = createEventProbability(0, 1, null, null, Double.valueOf(0.0001), po);
+//		ppzService.createEventProbability(ep);
+//		ep = createEventProbability(1, 2, null, null, Double.valueOf(0.0005), po);
+//		ppzService.createEventProbability(ep);
+//		ep = createEventProbability(2, 3, null, null, Double.valueOf(0.001), po);
+//		ppzService.createEventProbability(ep);
+//		ep = createEventProbability(3, null, null, null, Double.valueOf(0.2), po);
+//		ppzService.createEventProbability(ep);
+//		
+//		// create event impacts
+//		
+//		PossibleEvent poForEventImpact = ppzService.getPossibleEvent(1L);
+//		
+//		EventImpact ei = null;
+//		ei = createEventImpact(EventImpact.EVENT_IMPACT_TYPE_ENVIRONS_MINUS, 4L, Boolean.FALSE, poForEventImpact);
+//		ppzService.createEventImpact(ei);
+//		ei = createEventImpact(EventImpact.EVENT_IMPACT_TYPE_CHANGE_EXPENSES, 500L, Boolean.TRUE, poForEventImpact);
+//		ppzService.createEventImpact(ei);
+//				
+//	}
+
+	
+//	@Test
+//	@Rollback(true)
+//	public void testAvatarTransientFetch() {
+//		
+//		// try to get avatar by game with all transient members
+//
+//		GameCode gameCode = ppzService.getGameCode(1L);
+//		Game game = ppzService.getGame(gameCode);
+//		
+//		System.out.println(game);
+//		
+//		
+//	}
+	
+	
+	
+	@Test
+	@Rollback(true)
+	public void testKomendius() {
+
+		GameCode gameCode = ppzService.getGameCode(1L);
+		
+		// try to travel through one year in time
+
+		for (int i = 0; i < 70; i++) {
+//			komendius.getNextGameEvent(gameCode);
+		}
+		
+	}
+	
+	
+//	@Test
+//	public void testAddGameCode() {
+//
+//		List<GameCode> gameCodeList = ppzService.getGameCodeList();
+//		Integer gameCodeCount = gameCodeList.size();
+//
+//		List<Advisor> advisorList = ppzService.getAdvisorList();
+//
+//		GameCode gameCode = new GameCode();
+//		// gameCode.setGameCodeId(gameCodeId);
+//		gameCode.setAdvisor(advisorList.get(0));
+//		gameCode.setAlreadyPlayedGamesCount(5L);
+//		gameCode.setAvailableGamesCount(300L);
+//		gameCode.setCreated(new Date());
+//		gameCode.setCode("TestGameCodeJUnit");
+//		gameCode.setLatestPlayedGameDate(new Date());
+//		ppzService.createGameCode(gameCode);
+//
+//		Integer gameCodeCountAfterInsert = ppzService.getGameCodeList().size();
+//
+//		Assert.assertTrue((gameCodeCountAfterInsert - 1) == gameCodeCount);
+//	}
+
+//	@Test
+//	public void testAddAdvisor() {
+//		Integer advisorCount = ppzService.getAdvisorList().size();
+//
+//		Advisor advisor = new Advisor();
+//		advisor.setName("JUnitTest");
+//		ppzService.createAdvisor(advisor);
+//
+//		Integer advisorCountAfterInsert = ppzService.getAdvisorList().size();
+//
+//		Assert.assertTrue((advisorCountAfterInsert - 1) == advisorCount);
+//	}
+
+	private EventProbability createEventProbability(Integer ageFrom, Integer ageTo, BigDecimal valueFrom, BigDecimal valueTo, Double probability, PossibleEvent po) {
+		EventProbability ep = new EventProbability();
+		ep.setAgeFrom(ageFrom);
+		ep.setAgeTo(ageTo);
+		ep.setPossibleEvent(po);
+		ep.setValueFrom(valueFrom);
+		ep.setValueTo(valueTo);
+		ep.setProbability(probability);
+		return ep;
+	}
+
+	private EventImpact createEventImpact(Integer impactType, Long impactSize, Boolean insuredImpact, PossibleEvent po) {
+		EventImpact ei = new EventImpact();
+		ei.setType(impactType);
+		ei.setImpactSize(impactSize);
+		ei.setInsuredImpact(insuredImpact);
+		ei.setPossibleEvent(po);
+		
+		return ei;
+	}
+	
+	
+}

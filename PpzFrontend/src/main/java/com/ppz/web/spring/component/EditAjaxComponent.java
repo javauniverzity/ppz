@@ -1,0 +1,26 @@
+package com.ppz.web.spring.component;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.ppz.web.service.UserService;
+
+@Component
+public class EditAjaxComponent {
+	
+	@Autowired
+	UserService userService;
+	
+	public String setValue(String value1, String value2) {
+		System.out.println(value1);
+		System.out.println(value2);
+		if ("error".equals(value1)) {
+			return "Byla zadana chybna hodnota v prvnim policku";
+		}
+		if ("error".equals(value2)) {
+			return "Byla zadana chybna hodnota v druhem policku";
+		}
+		return "";
+	}
+
+}

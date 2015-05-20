@@ -1,0 +1,20 @@
+package com.ppz.web.repository;
+
+import java.util.List;
+
+import com.ppz.web.entity.EventImpact;
+import com.ppz.web.entity.PossibleEvent;
+
+/**
+ * REPOSITORY interface for EventImpact entity specific methods
+ * 
+ * @author Petr Hirs
+ * 
+ */
+public interface EventImpactRepository extends GenericRepository<EventImpact, Long> {
+
+	// no Event Impact specific methods
+	
+	List<EventImpact> getEventImpactListByPossibleEvent(PossibleEvent possibleEvent);
+
+}

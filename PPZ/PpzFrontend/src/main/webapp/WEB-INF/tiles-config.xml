@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- DEFAULT MAIN TEMPLATE -->
+	<definition name="template" template="/WEB-INF/pages/templates/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/pages/fragments/header.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/pages/fragments/menu.jsp" />
+		<put-attribute name="submenu" value="/WEB-INF/pages/fragments/blank.jsp" />
+		<put-attribute name="content" value="/WEB-INF/pages/fragments/blank.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/pages/fragments/footer.jsp" />
+		<put-attribute name="messages" value="/WEB-INF/pages/fragments/messages.jsp" />
+		<put-attribute name="head" value="/WEB-INF/pages/fragments/blank.jsp" />
+		<put-attribute name="title" value="/WEB-INF/pages/fragments/title.jsp" />
+	</definition>
+
+	<definition name="ppz" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/ppz.jsp"/>
+		<put-attribute name="head" value="/WEB-INF/pages/head/ppz.jsp"/>
+	</definition>
+
+	<definition name="code" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/code.jsp"/>
+	</definition>
+
+	<definition name="index" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/index.jsp"/>
+	</definition>
+
+	<definition name="login" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/login.jsp"/>
+	</definition>
+
+	<definition name="demo" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/demo.jsp"/>
+	</definition>
+
+	<definition name="selectavatar" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/selectavatar.jsp"/>
+	</definition>
+
+	<definition name="edit" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/edit.jsp"/>
+		<put-attribute name="head" value="/WEB-INF/pages/head/edit.jsp"/>
+	</definition>
+
+	<definition name="familySetup" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/setup/family.jsp"/>
+		<put-attribute name="head" value="/WEB-INF/pages/head/setup/family.jsp"/>
+	</definition>
+
+	<definition name="avatarSetup" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/setup/avatar.jsp"/>
+	</definition>
+
+	<definition name="admin" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/admin.jsp"/>
+	</definition>
+
+	<definition name="bank" extends="template" >
+		<put-attribute name="content" value="/WEB-INF/pages/bank.jsp"/>
+		<put-attribute name="head" value="/WEB-INF/pages/head/bank.jsp"/>
+	</definition>
+
+
+	<definition name="web" template="/WEB-INF/pages/blank.jsp" />
+
+</tiles-definitions>

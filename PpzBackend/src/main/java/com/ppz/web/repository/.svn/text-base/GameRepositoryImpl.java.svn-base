@@ -1,0 +1,84 @@
+package com.ppz.web.repository;
+
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.ppz.web.entity.Avatar;
+import com.ppz.web.entity.Game;
+import com.ppz.web.entity.GameCode;
+import com.ppz.web.entity.GameEvent;
+
+@Repository(value = "gameRepository")
+public class GameRepositoryImpl extends AbstractRepository<Game, Long> implements GameRepository {
+
+	@Autowired
+	private FinancialAssetsRepository faRepository;
+
+	@Autowired
+	private NonFinancialAssetsRepository nonFaRepository;
+	
+	@Autowired
+	private LinkedPersonRepository lpRepository;
+
+	@Autowired
+	private GameEventRepository geRepository;
+	
+	@Override
+	public Class<Game> getType() {
+		return Game.class;
+	}
+	
+	@Override
+	public Game getGame(GameCode gameCodeToFind) {
+		DetachedCriteria crit = DetachedCriteria.forClass(GameCode.class).add(Restrictions.eq("code", gameCodeToFind.getCode()));
+		@SuppressWarnings("rawtypes")
+		List results = getTemplate().findByCriteria(crit, 0, 1);
+		if (results.size() != 0) {
+			GameCode gameCode = (GameCode) results.get(0);
+			
+			if (gameCode.getGame() != null) {
+
+				Long actualRound = gameCode.getGame().getRoundPlayed();
+				
+				// get rest linked transient lists
+
+				Avatar gameAvatar = gameCode.getGame().getAvatar();
+				
+				// transient financial assets
+				gameCode.getGame().getAvatar().setFinancialAssetsList(faRepository.getFinancialAssetsByAvatar(gameAvatar));
+				
+				// transient nonFinancial assets
+				gameCode.getGame().getAvatar().setNonFinancialAssetsList(nonFaRepository.getNonFinancialAssetsListByAvatar(gameAvatar));
+				
+				// transient linked person list
+				gameCode.getGame().getAvatar().setLinkedPersonList(lpRepository.getLinkedPersonListByAvatar(gameAvatar, actualRound));
+				
+				// transient game events
+				gameCode.getGame().setGameEventList((geRepository.getGameEventListByGame(gameCode.getGame(), actualRound)));
+				
+			}
+			
+			return gameCode.getGame();
+		} else {
+			return null;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<GameEvent> getLAllGameEvenList(Game game) {
+		DetachedCriteria crit = DetachedCriteria.forClass(GameEvent.class).add(Restrictions.eq("game", game));
+		@SuppressWarnings("rawtypes")
+		List results = getTemplate().findByCriteria(crit);
+		if (results.size() != 0) {
+			return (List<GameEvent>) results;
+		} else {
+			return null;
+		}
+	}
+
+}
