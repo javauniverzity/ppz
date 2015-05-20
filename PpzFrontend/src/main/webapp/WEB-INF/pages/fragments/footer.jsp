@@ -1,1 +1,0 @@
-<span style="font-size: 10px; position: relative; top: 5px;">&copy;2011 PPZ</span>
