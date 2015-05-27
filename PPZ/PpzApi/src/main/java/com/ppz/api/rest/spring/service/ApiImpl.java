@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.ppz.api.rest.entity.GetUsersResponse;
 import com.ppz.api.rest.spring.service.interfaces.Api;
-import com.ppz.api.rest.spring.service.interfaces.GetUsersResponse;
 import com.ppz.web.entity.User;
-import com.ppz.web.service.UserService;
+import com.ppz.web.interfaces.service.UserService;
 
 public class ApiImpl implements Api{
 

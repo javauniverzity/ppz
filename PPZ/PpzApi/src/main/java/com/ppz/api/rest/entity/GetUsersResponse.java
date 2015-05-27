@@ -1,4 +1,4 @@
-package com.ppz.api.rest.spring.service.interfaces;
+package com.ppz.api.rest.entity;
 
 import java.util.List;
 

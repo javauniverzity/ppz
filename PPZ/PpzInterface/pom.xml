@@ -9,19 +9,25 @@
 	<artifactId>PpzInterface</artifactId>
 	<dependencies>
 		<dependency>
-			<groupId>cz.expertkom.ppz</groupId>
-			<artifactId>PpzBackend</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
 		</dependency>
 	</dependencies>
 </project>

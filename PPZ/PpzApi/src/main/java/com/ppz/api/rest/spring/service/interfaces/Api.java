@@ -8,6 +8,8 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.cxf.rs.security.cors.CrossOriginResourceSharing;
 
+import com.ppz.api.rest.entity.GetUsersResponse;
+
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @CrossOriginResourceSharing(allowAllOrigins = true)

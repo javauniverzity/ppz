@@ -19,13 +19,14 @@
 		</plugins>
 	</build>
 	<modules>
+		<module>PpzInterface</module>
 		<module>PpzBackend</module>
 		<module>PpzFrontend</module>
-		<module>PpzInterface</module>
+		<module>PpzApi</module>
 	</modules>
 	<properties>
 		<spring.version>3.1.3.RELEASE</spring.version>
-		<cxf.version>2.7.5</cxf.version>
+		<cxf.version>3.0.4</cxf.version>
 		<hibernate.version>4.2.3.Final</hibernate.version>
 	</properties>
 </project>

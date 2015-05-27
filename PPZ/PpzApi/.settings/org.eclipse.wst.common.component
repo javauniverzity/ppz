@@ -6,6 +6,9 @@
         <dependent-module archiveName="PpzBackend-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/PpzBackend/PpzBackend">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="PpzInterface-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/PpzInterface/PpzInterface">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/PpzFrontend/build/classes"/>
         <property name="context-root" value="PpzApi"/>
     </wb-module>
