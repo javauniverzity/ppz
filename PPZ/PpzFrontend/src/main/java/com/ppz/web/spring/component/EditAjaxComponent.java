@@ -3,7 +3,7 @@ package com.ppz.web.spring.component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ppz.web.service.UserService;
+import com.ppz.web.interfaces.service.UserService;
 
 @Component
 public class EditAjaxComponent {

@@ -17,6 +17,7 @@ import com.ppz.web.entity.GameEvent;
 import com.ppz.web.entity.LinkedPerson;
 import com.ppz.web.entity.NonFinancialAssets;
 import com.ppz.web.entity.PossibleEvent;
+import com.ppz.web.interfaces.service.PpzService;
 import com.ppz.web.repository.AdvisorRepository;
 import com.ppz.web.repository.AvatarRepository;
 import com.ppz.web.repository.EventImpactRepository;

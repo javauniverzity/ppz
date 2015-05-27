@@ -14,7 +14,7 @@ import com.ppz.web.entity.Game;
 import com.ppz.web.entity.GameCode;
 import com.ppz.web.entity.LinkedPerson;
 import com.ppz.web.entity.PossibleEvent;
-import com.ppz.web.service.PpzService;
+import com.ppz.web.interfaces.service.PpzService;
 
 @Component
 public class KomendiusComponent {

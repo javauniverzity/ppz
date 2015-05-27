@@ -1,4 +1,4 @@
-package com.ppz.web.service;
+package com.ppz.web.interfaces.service;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.userdetails.UserDetailsService;

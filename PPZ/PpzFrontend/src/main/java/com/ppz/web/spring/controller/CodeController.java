@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ppz.web.entity.Game;
 import com.ppz.web.entity.GameCode;
 import com.ppz.web.entity.User;
-import com.ppz.web.service.PpzService;
-import com.ppz.web.service.UserService;
+import com.ppz.web.interfaces.service.PpzService;
+import com.ppz.web.interfaces.service.UserService;
 import com.ppz.web.utils.WebUtils;
 
 /**

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ppz.web.service.PpzService;
-import com.ppz.web.service.UserService;
+import com.ppz.web.interfaces.service.PpzService;
+import com.ppz.web.interfaces.service.UserService;
 
 /**
  * prihlaseni pomoci kodu

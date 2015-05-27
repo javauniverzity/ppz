@@ -1,4 +1,4 @@
-package com.ppz.web.service;
+package com.ppz.web.interfaces.service;
 
 public interface MailService {
 

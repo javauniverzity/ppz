@@ -20,8 +20,8 @@ import com.ppz.web.entity.Avatar;
 import com.ppz.web.entity.FinancialAssets;
 import com.ppz.web.entity.Game;
 import com.ppz.web.entity.GameCode;
-import com.ppz.web.service.PpzService;
-import com.ppz.web.service.UserService;
+import com.ppz.web.interfaces.service.PpzService;
+import com.ppz.web.interfaces.service.UserService;
 import com.ppz.web.utils.Enums;
 import com.ppz.web.utils.WebUtils;
 

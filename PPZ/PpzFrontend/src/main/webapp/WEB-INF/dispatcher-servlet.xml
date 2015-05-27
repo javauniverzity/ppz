@@ -58,7 +58,6 @@
 		<property name="authenticationFailureHandler" ref="failureHandler" />
 		<property name="authenticationSuccessHandler" ref="successHandler" />
 
-
 		<property name="filterProcessesUrl">
 			<value>/j_spring_security_check</value>
 		</property>
@@ -69,12 +68,11 @@
 		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
 		<property name="defaultTargetUrl" value="/ppz.html" /> <!-- which is the default value -->
 	</bean>
+	
 	<bean id="failureHandler"
 		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
 		<property name="defaultFailureUrl" value="/login.html?error=loginError" />
 	</bean>
-
-
 
 	<security:global-method-security
 		pre-post-annotations="enabled" />

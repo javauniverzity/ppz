@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 
 import com.ppz.web.entity.User;
-import com.ppz.web.service.UserService;
+import com.ppz.web.interfaces.service.UserService;
 import com.ppz.web.utils.UserUtils;
 
 public class LocaleResolver extends AcceptHeaderLocaleResolver {

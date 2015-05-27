@@ -23,8 +23,8 @@ import com.ppz.web.entity.GameCode;
 import com.ppz.web.entity.LinkedPerson;
 import com.ppz.web.entity.PossibleEvent;
 import com.ppz.web.entity.User;
-import com.ppz.web.service.PpzService;
-import com.ppz.web.service.UserService;
+import com.ppz.web.interfaces.service.PpzService;
+import com.ppz.web.interfaces.service.UserService;
 import com.ppz.web.utils.UserUtils;
 
 /**

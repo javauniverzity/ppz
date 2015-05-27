@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.ppz.web.entity.Avatar;
 import com.ppz.web.entity.GameCode;
 import com.ppz.web.entity.LinkedPerson;
-import com.ppz.web.service.PpzService;
+import com.ppz.web.interfaces.service.PpzService;
 import com.ppz.web.utils.WebUtils;
 
 @Controller

@@ -10,6 +10,8 @@ import javax.mail.internet.MimeMessage;
 
 import org.springframework.stereotype.Service;
 
+import com.ppz.web.interfaces.service.MailService;
+
 @Service(value="mailService")
 public class MailServiceImpl implements MailService {
 	public void sendMail(String email, String subject, String text) throws Exception {

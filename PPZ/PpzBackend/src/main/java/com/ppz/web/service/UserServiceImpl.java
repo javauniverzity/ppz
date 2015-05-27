@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ppz.web.entity.User;
+import com.ppz.web.interfaces.service.UserService;
 import com.ppz.web.repository.UserRepository;
 
 @Service(value = "userService")
