@@ -1,10 +1,6 @@
 package com.ppz.web.spring.component;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,11 +28,11 @@ import com.ppz.web.utils.WebUtils;
 @Component(value = "ppzAjaxComponent")
 public class PpzAjaxComponent {
 	
-	private BigDecimal sporUcetBallance = new BigDecimal("354221");
-	private BigDecimal hypotekaBallance = new BigDecimal("-2132556");
-	private BigDecimal spotrUverBallance = new BigDecimal("-126226");
-	private BigDecimal akciovyIFBallance = new BigDecimal("125223");
-	private Locale loc = new Locale("cs", "CZ", "");
+//	private BigDecimal sporUcetBallance = new BigDecimal("354221");
+//	private BigDecimal hypotekaBallance = new BigDecimal("-2132556");
+//	private BigDecimal spotrUverBallance = new BigDecimal("-126226");
+//	private BigDecimal akciovyIFBallance = new BigDecimal("125223");
+//	private Locale loc = new Locale("cs", "CZ", "");
 	
 	@Autowired
 	UserService userService;
@@ -99,41 +95,42 @@ public class PpzAjaxComponent {
 			return "";
 		}
 	}
-	private String getConvertedCurrency(BigDecimal number) {
-		NumberFormat nf = NumberFormat.getNumberInstance(loc);
-		DecimalFormat df = (DecimalFormat)nf;
-		df.applyPattern("###,###.###");
-		return df.format(number);
-	}
+//	private String getConvertedCurrency(BigDecimal number) {
+//		NumberFormat nf = NumberFormat.getNumberInstance(loc);
+//		DecimalFormat df = (DecimalFormat)nf;
+//		df.applyPattern("###,###.###");
+//		return df.format(number);
+//	}
 		
-	private String getSporeniValue() {
-		BigDecimal urok = new BigDecimal("1.005");
-		BigDecimal pocatecniSuma = sporUcetBallance;
-		sporUcetBallance = pocatecniSuma.multiply(urok).setScale(2, BigDecimal.ROUND_HALF_UP);
-		String konecnaSuma = getConvertedCurrency(sporUcetBallance);
-		return konecnaSuma;
-	}
-	private String getHypotekaValue() {
-		BigDecimal splatka = new BigDecimal("15537");
-		BigDecimal pocatecniSuma = hypotekaBallance;
-		hypotekaBallance = pocatecniSuma.add(splatka);
-		String konecnaSuma = getConvertedCurrency(hypotekaBallance);
-		return konecnaSuma;
-	}
-	private String getSpotrUverValue() {
-		BigDecimal splatka = new BigDecimal("3245");
-		BigDecimal pocatecniSuma = spotrUverBallance;
-		spotrUverBallance = pocatecniSuma.add(splatka);
-		String konecnaSuma = getConvertedCurrency(spotrUverBallance);
-		return konecnaSuma;
-	}
-	private String getAkciovyIFValue() {
-		BigDecimal urok = new BigDecimal("1.012");
-		BigDecimal pocatecniSuma = akciovyIFBallance;
-		akciovyIFBallance = pocatecniSuma.multiply(urok).setScale(2, BigDecimal.ROUND_HALF_UP);
-		String konecnaSuma = getConvertedCurrency(akciovyIFBallance);
-		return konecnaSuma;
-	}
+	
+//	private String getSporeniValue() {
+//		BigDecimal urok = new BigDecimal("1.005");
+//		BigDecimal pocatecniSuma = sporUcetBallance;
+//		sporUcetBallance = pocatecniSuma.multiply(urok).setScale(2, BigDecimal.ROUND_HALF_UP);
+//		String konecnaSuma = getConvertedCurrency(sporUcetBallance);
+//		return konecnaSuma;
+//	}
+//	private String getHypotekaValue() {
+//		BigDecimal splatka = new BigDecimal("15537");
+//		BigDecimal pocatecniSuma = hypotekaBallance;
+//		hypotekaBallance = pocatecniSuma.add(splatka);
+//		String konecnaSuma = getConvertedCurrency(hypotekaBallance);
+//		return konecnaSuma;
+//	}
+//	private String getSpotrUverValue() {
+//		BigDecimal splatka = new BigDecimal("3245");
+//		BigDecimal pocatecniSuma = spotrUverBallance;
+//		spotrUverBallance = pocatecniSuma.add(splatka);
+//		String konecnaSuma = getConvertedCurrency(spotrUverBallance);
+//		return konecnaSuma;
+//	}
+//	private String getAkciovyIFValue() {
+//		BigDecimal urok = new BigDecimal("1.012");
+//		BigDecimal pocatecniSuma = akciovyIFBallance;
+//		akciovyIFBallance = pocatecniSuma.multiply(urok).setScale(2, BigDecimal.ROUND_HALF_UP);
+//		String konecnaSuma = getConvertedCurrency(akciovyIFBallance);
+//		return konecnaSuma;
+//	}
 		
 	private String getRandomEvent() {
 		try {

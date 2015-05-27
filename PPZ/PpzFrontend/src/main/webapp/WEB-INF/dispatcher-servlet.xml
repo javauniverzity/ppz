@@ -43,26 +43,66 @@
 	<bean id="localeResolver" class="com.ppz.web.spring.localization.LocaleResolver">
 		<property name="userService" ref="userService" />
 	</bean>
-	
-	<security:global-method-security pre-post-annotations="enabled"/>
 
-    
-    <security:http use-expressions="true">
-	    <security:intercept-url pattern="/css/**" access="permitAll"/>
-        <security:intercept-url pattern="/ppz**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-        <security:intercept-url pattern="/edit**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-        <security:intercept-url pattern="/bank**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-        <security:intercept-url pattern="/advisor**" access="hasAnyRole('ROLE_ADVISOR')" />
-        <security:form-login login-page="/code.html" default-target-url="/ppz.html"/>
-        <security:http-basic />
-        <security:remember-me />
-        <security:logout logout-success-url="/index.html" />
-    </security:http>
-    
-    <security:authentication-manager>
-		<security:authentication-provider user-service-ref="userService" >
+	<bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
+		<constructor-arg>
+			<list>
+				<security:filter-chain pattern="/**"
+					filters="loginProcessingFilter" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="loginProcessingFilter"
+		class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+		<property name="authenticationFailureHandler" ref="failureHandler" />
+		<property name="authenticationSuccessHandler" ref="successHandler" />
+
+
+		<property name="filterProcessesUrl">
+			<value>/j_spring_security_check</value>
+		</property>
+		<property name="authenticationManager" ref="authenticationManager" />
+	</bean>
+
+	<bean id="successHandler"
+		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
+		<property name="defaultTargetUrl" value="/ppz.html" /> <!-- which is the default value -->
+	</bean>
+	<bean id="failureHandler"
+		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+		<property name="defaultFailureUrl" value="/login.html?error=loginError" />
+	</bean>
+
+
+
+	<security:global-method-security
+		pre-post-annotations="enabled" />
+
+
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/css/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/ppz**"
+			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+		<security:intercept-url pattern="/edit**"
+			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+		<security:intercept-url pattern="/bank**"
+			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+		<security:intercept-url pattern="/advisor**"
+			access="hasAnyRole('ROLE_ADVISOR')" />
+		<security:form-login login-page="/code.html"
+			default-target-url="/ppz.html" />
+		<security:http-basic />
+		<security:remember-me />
+		<security:logout logout-success-url="/index.html" />
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider
+			user-service-ref="userService">
 			<security:password-encoder hash="md5">
-				<security:salt-source user-property="username"/>
+				<security:salt-source user-property="username" />
 			</security:password-encoder>
 		</security:authentication-provider>
 	</security:authentication-manager>
