@@ -14,6 +14,10 @@ import com.ppz.web.entity.Game;
 import com.ppz.web.entity.GameCode;
 import com.ppz.web.entity.GameEvent;
 
+/**
+ * Implementace repository entity Game
+ * @author pc
+ */
 @Repository(value = "gameRepository")
 public class GameRepositoryImpl extends AbstractRepository<Game> implements GameRepository {
 
@@ -29,6 +33,9 @@ public class GameRepositoryImpl extends AbstractRepository<Game> implements Game
 	@Autowired
 	private GameEventRepository geRepository;
 
+	/**
+	 * Vyhledavani hry podle herniho kodu
+	 */
 	@Override
 	public Game getGame(GameCode gameCodeToFind) {
 
@@ -45,20 +52,20 @@ public class GameRepositoryImpl extends AbstractRepository<Game> implements Game
 
 				Long actualRound = gameCode.getGame().getRoundPlayed();
 
-				// get rest linked transient lists
+				// dej zbytek spojenych docasnych seznamu
 
 				Avatar gameAvatar = gameCode.getGame().getAvatar();
 
-				// transient financial assets
+				// docasna financni aktiva
 				gameCode.getGame().getAvatar().setFinancialAssetsList(faRepository.getFinancialAssetsByAvatar(gameAvatar));
 
-				// transient nonFinancial assets
+				// docasna nefinancni aktiva
 				gameCode.getGame().getAvatar().setNonFinancialAssetsList(nonFaRepository.getNonFinancialAssetsListByAvatar(gameAvatar));
 
-				// transient linked person list
+				// seznam spojenych docasnych avataru
 				gameCode.getGame().getAvatar().setLinkedPersonList(lpRepository.getLinkedPersonListByAvatar(gameAvatar, actualRound));
 
-				// transient game events
+				// docasne herni udalosti
 				gameCode.getGame().setGameEventList((geRepository.getGameEventListByGame(gameCode.getGame(), actualRound)));
 
 			}
@@ -69,6 +76,9 @@ public class GameRepositoryImpl extends AbstractRepository<Game> implements Game
 		}
 	}
 
+	/** 
+	 * Dej seznam vsech hernich udalosti
+	 */
 	@Override
 	public List<GameEvent> getLAllGameEvenList(Game game) {
 		final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();

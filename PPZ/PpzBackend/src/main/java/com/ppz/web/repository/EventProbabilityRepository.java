@@ -6,19 +6,13 @@ import com.ppz.web.entity.EventProbability;
 import com.ppz.web.entity.PossibleEvent;
 
 /**
- * REPOSITORY interface for EventProbability entity specific methods
- * 
- * 
- * 
+ * Interface repository specifickych metod pro entitu EventProbability
+ * @author David 
  */
 public interface EventProbabilityRepository extends GenericRepository<EventProbability> {
 
 	/**
-	 * Get list of all Event Probability for specific possible Event
-	 * 
-	 * @param possibleEvent - specific possibleEvent
-	 * 
-	 * @return list of Event Probabilities
+	 * Dej seznam vsech EventProbability pro specifickou moznost udalosti
 	 */
 	List<EventProbability> getEventProbabilityList(PossibleEvent possibleEvent);
 

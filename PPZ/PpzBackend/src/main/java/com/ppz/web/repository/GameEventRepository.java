@@ -6,10 +6,8 @@ import com.ppz.web.entity.Game;
 import com.ppz.web.entity.GameEvent;
 
 /**
- * REPOSITORY interface for GameEvent entity specific methods
- * 
- * 
- * 
+ * Interface repository specifickych metod pro entitu GameEvent
+ * @author David
  */
 public interface GameEventRepository extends GenericRepository<GameEvent> {
 

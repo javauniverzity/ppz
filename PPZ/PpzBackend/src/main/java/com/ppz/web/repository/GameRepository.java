@@ -7,26 +7,24 @@ import com.ppz.web.entity.GameCode;
 import com.ppz.web.entity.GameEvent;
 
 /**
- * REPOSITORY interface for Game entity specific methods
- * 
- * 
- * 
+ * Interface repository specifickych metod pro entitu Game
+ * @author David
  */
 public interface GameRepository extends GenericRepository<Game>{
 
 	/**
-	 * Get game by game code
-	 * @param gameCode - code for game
+	 * Dej Game podle kodu
+	 * @param gameCode - kod pro hru
 	 * 
-	 * @return game identified by game code
+	 * @return hra identifikovana podle kodu
 	 */
 	Game getGame(GameCode gameCode);
 
 	/**
-	 * Get list of all game events
-	 * @param Game - game identification
+	 * Dej seznam vsech hernich udalosti
+	 * @param Game - identifikace hry
 	 * 
-	 * @return list of all game events
+	 * @return seznam vsech hernich udalosti
 	 */
 	public List<GameEvent> getLAllGameEvenList(Game game);	
 	

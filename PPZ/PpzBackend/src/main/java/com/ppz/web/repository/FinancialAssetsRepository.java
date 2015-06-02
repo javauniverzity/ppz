@@ -6,8 +6,7 @@ import com.ppz.web.entity.Avatar;
 import com.ppz.web.entity.FinancialAssets;
 
 /**
- * REPOSITORY object for entity FinancialAssets.
- * 
+ * Repository pro entitu objektu FinancialAssets
  * 
  * 
  */

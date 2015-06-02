@@ -12,6 +12,11 @@ import org.springframework.stereotype.Repository;
 import com.ppz.web.entity.GameCode;
 import com.ppz.web.entity.User;
 
+/**
+ * Implementace repository uzivatel
+ * @author pc
+ *
+ */
 @Repository(value = "userRepository")
 public class UserRepositoryImpl extends AbstractRepository<User> implements UserRepository {
 
@@ -47,6 +52,9 @@ public class UserRepositoryImpl extends AbstractRepository<User> implements User
 		return user;
 	}
 
+	/**
+	 * Vyhledavani uzivatele dle uzivatelskeho jmena
+	 */
 	@Override
 	public User loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
 		if (username == null || "".equals(username)) {
@@ -62,13 +70,16 @@ public class UserRepositoryImpl extends AbstractRepository<User> implements User
 		}
 	}
 
+	/**
+	 * Vyhledavani uzivatele dle kodu
+	 */
 	@Override
 	public User loadUserByCode(String code) throws UsernameNotFoundException, DataAccessException {
 		if (code == null || "".equals(code)) {
 			return null;
 		}
 
-		// get gameCode with wanted code
+		// dej GameCode s pozadovanym codem
 		GameCode gameCode = gameCodeRepository.getGameCode(code);
 
 		if (gameCode != null && gameCode.getUser() != null) {

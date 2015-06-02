@@ -6,6 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import com.ppz.web.entity.Advisor;
 
+/**
+ * Implementace repository advisor
+ * @author David
+ *
+ */
 @Repository(value = "advisorRepository")
 public class AdvisorRepositoryImpl extends AbstractRepository<Advisor> implements AdvisorRepository {
 

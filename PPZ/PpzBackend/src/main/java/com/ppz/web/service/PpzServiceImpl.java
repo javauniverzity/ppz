@@ -29,6 +29,10 @@ import com.ppz.web.repository.LinkedPersonRepository;
 import com.ppz.web.repository.NonFinancialAssetsRepository;
 import com.ppz.web.repository.PossibleEventRepository;
 
+/**
+ * Implementace sluzby PPZ, ktera zastresuje samotny chod hry
+ * @author David
+ */
 @Service
 @Transactional
 public class PpzServiceImpl implements PpzService {

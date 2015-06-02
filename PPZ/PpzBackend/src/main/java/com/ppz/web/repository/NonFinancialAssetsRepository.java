@@ -6,10 +6,8 @@ import com.ppz.web.entity.Avatar;
 import com.ppz.web.entity.NonFinancialAssets;
 
 /**
- * REPOSITORY object for entity NonFinancialAssets.
- * 
- * 
- * 
+ * Repository pro objekt entity NonFinancialassets
+ * @author David
  */
 public interface NonFinancialAssetsRepository extends GenericRepository<NonFinancialAssets> {
 

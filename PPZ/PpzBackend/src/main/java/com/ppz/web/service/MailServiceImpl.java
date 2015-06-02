@@ -12,6 +12,10 @@ import org.springframework.stereotype.Service;
 
 import com.ppz.web.interfaces.service.MailService;
 
+/**
+ * Implementace sluzby mailService na starosti odesilani emailu
+ * @author David
+ */
 @Service(value="mailService")
 public class MailServiceImpl implements MailService {
 	public void sendMail(String email, String subject, String text) throws Exception {
@@ -25,7 +29,7 @@ public class MailServiceImpl implements MailService {
 		message.setSubject(subject, "UTF-8");
 		
 		message.setContent(text, "text/html; charset=UTF-8");
-		// TODO upravit adresu
+		// upravit adresu
 		message.addFrom(new InternetAddress[]{new InternetAddress("ppz@ppz.com")});
 		message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 

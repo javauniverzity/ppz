@@ -17,6 +17,11 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Abstraktni repository pro praci s entitami
+ * @author David
+ *
+ */
 @Repository
 @Transactional(readOnly = true)
 public abstract class AbstractRepository<T> implements GenericRepository<T> {
@@ -26,18 +31,27 @@ public abstract class AbstractRepository<T> implements GenericRepository<T> {
 	@PersistenceContext
 	protected EntityManager entityManager;
 
+	/**
+	 * Tvorba entity
+	 */
 	@Transactional(readOnly = false)
 	public void create(final T o) {
 		logger.info("persist " + o);
 		entityManager.persist(o);
 	}
 
+	/**
+	 * Mazani entity
+	 */
 	@Transactional(readOnly = false)
 	public void delete(final T o) {
 		logger.info("remove " + o);
 		entityManager.remove(o);
 	}
 
+	/**
+	 * Aktualizace entity
+	 */
 	@Transactional(readOnly = false)
 	public void update(final T o) {
 		logger.info("update " + o);
@@ -45,17 +59,24 @@ public abstract class AbstractRepository<T> implements GenericRepository<T> {
 		entityManager.merge(o);
 	}
 
+	/**
+	 * Hledani podle kriterii
+	 */
 	public List<T> findByCriteria(final CriteriaQuery<T> crit) {
 		logger.info("findByCriteria " + crit);
 		return entityManager.createQuery(crit).getResultList();
 	}
-
+	/**
+	 * Hledani podle kriterii s minimalni a maximali hodnotou
+	 */
 	public List<T> findByCriteria(final CriteriaQuery<T> crit, final int min, final int max) {
 		logger.info("findByCriteria " + crit + " min:" + min + " max:" + max);
 		return entityManager.createQuery(crit).setFirstResult(min).setMaxResults(max).getResultList();
 
 	}
-
+	/**
+	 * Nacte vsechny polozky seznamu
+	 */
 	public List<T> loadAll(final Class<T> clazz) {
 		final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		final CriteriaQuery<T> crit = criteriaBuilder.createQuery(clazz);
@@ -64,7 +85,9 @@ public abstract class AbstractRepository<T> implements GenericRepository<T> {
 		final List<T> results = findByCriteria(crit);
 		return results;
 	}
-
+	/**
+	 * Nacte polozky podle Id
+	 */
 	public T loadById(final Class<T> clazz, Long id) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("id", id);
@@ -74,11 +97,16 @@ public abstract class AbstractRepository<T> implements GenericRepository<T> {
 		}
 		return null;
 	}
-
+	/**
+	 * Nacte seznam podle filtru
+	 */
 	public List<T> loadByFilter(final Map<String, Object> filter, final Class<T> clazz) {
 		return loadByFilter(filter, null, null, clazz);
 	}
 
+	/**
+	 * Nacte seznam podle kriterii filtru
+	 */
 	public List<T> loadByFilter(final Map<String, Object> filterEq,	final Map<String, Object> filterGt,	final Map<String, Object> filterLt, final Class<T> clazz) {
 		final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		final CriteriaQuery<T> crit = criteriaBuilder.createQuery(clazz);

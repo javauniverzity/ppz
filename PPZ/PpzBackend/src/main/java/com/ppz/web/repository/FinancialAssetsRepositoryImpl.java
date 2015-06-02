@@ -9,20 +9,34 @@ import org.springframework.stereotype.Repository;
 import com.ppz.web.entity.Avatar;
 import com.ppz.web.entity.FinancialAssets;
 
+/**
+ * Implementace repository FinancialAssets
+ * @author David
+ *
+ */
 @Repository(value = "financialAssetsRepository")
 public class FinancialAssetsRepositoryImpl extends AbstractRepository<FinancialAssets> implements FinancialAssetsRepository {
 
+	/**
+	 * Vytvori FinancialAssets
+	 */
 	@Override
 	public void createFinancialAssets(FinancialAssets financialAssets) {
 		create(financialAssets);
 	}
-
+	
+	/**
+	 * Aktualizuje FinancialAssets
+	 */
 	@Override
 	public FinancialAssets updateFinancialAssets(FinancialAssets financialAssets) {
 		update(financialAssets);
 		return financialAssets;
 	}
 
+	/**
+	 * Da seznam FinancialAssests podle Avataru
+	 */
 	@Override
 	public List<FinancialAssets> getFinancialAssetsByAvatar(Avatar avatar) {
 

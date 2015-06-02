@@ -5,20 +5,18 @@ import java.util.List;
 import com.ppz.web.entity.PossibleEvent;
 
 /**
- * REPOSITORY interface for PossibleEvent entity specific methods
- * 
- * 
- * 
+ * Interface repository specifickych metod pro entitu PossibleEvent
+ * @author David 
  */
 public interface PossibleEventRepository extends GenericRepository<PossibleEvent> { 
 	
 	/**
-	 * Possible events specified by root decision type
+	 * Mozne udalosti specifikovane dle stromu rozhodovani
 	 * 
-	 * @param rootDecision - type of root decision
-	 * @param decisionType - sub type of root decision
+	 * @param rootDecision - typ stromu rozhodovani
+	 * @param decisionType - sub type stromu rozhodovani
 	 * 
-	 * @return possible events for specified root decision
+	 * @return mozne udalosti pro specifikovane stromove rozhodnuti
 	 */
 	List<PossibleEvent> getPossibleEventList(Integer rootDecision, Integer decisionType);
 		

@@ -2,51 +2,50 @@ package com.ppz.web.repository;
 
 import java.util.List;
 
+/**
+ * Generic repository definuje zakladni CRUD operace
+ * @author David
+ */
 public interface GenericRepository<T> {
 
 //	public Class<T> getType();
 	
-	//
-	// Define basic CRUD operations
-	//
 
 	/**
-	 * Create and save object
+	 * Vytvori a ulozi objekt
 	 * 
-	 * @param o - object to persist
+	 * @param o - objekt do persist
 	 */
 	public void create(T o);
 
 	/**
-	 * Get object specified by id
+	 * Dej objekt podle Id
 	 * 
-	 * @param id
-	 * 
-	 * @return object specified by id
+	 * @return objekt podle Id
 	 */
 	public T loadById(final Class<T> clazz, Long id);
 
 	/**
-	 * Update changed entity
+	 * Aktualizuje zmeny entity
 	 * 
-	 * @param o - object with changes to persist
+	 * @param o - zmeneny objekt do persist
 	 */
 	public void update(T o);
 
 	/**
-	 * Delete entity
+	 * Smaze entitu
 	 * 
-	 * @param o - object to delete
+	 * @param o - objekt do delete
 	 */
 	public void delete(T o);
 
 	//
-	// Additional operations
+	// Dodatecne operace
 	//
 	/**
-	 * Gel list of all entities 
+	 * Dej seznam vsech entit
 	 * 
-	 * @return list of entities
+	 * @return seznam entit
 	 */
 	public List<T> loadAll(final Class<T> clazz);
 

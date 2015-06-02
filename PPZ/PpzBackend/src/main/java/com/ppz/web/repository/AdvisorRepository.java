@@ -5,21 +5,18 @@ import java.util.List;
 import com.ppz.web.entity.Advisor;
 
 /**
- * REPOSITORY interface for object for entity Advisor
- * 
- * 
- * 
+ * REPOSITORY interface pro objekt entity advisor
  */
 public interface AdvisorRepository  {
 
 	/**
-	 * Create and save Advisor entity
-	 * @param advisor - object to persist
+	 * Vytvori a ulozi entitu advisor
+	 * @param poradce - objekt do persist
 	 */
 	void createAdvisor(Advisor advisor);
 
 	/**
-	 * Get list of all advisors
+	 * Dej seznam vsech advisoru
 	 */
 	List<Advisor> getAdvisorList();
 	

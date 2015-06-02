@@ -11,9 +11,17 @@ import org.springframework.stereotype.Repository;
 import com.ppz.web.entity.Avatar;
 import com.ppz.web.entity.NonFinancialAssets;
 
+/**
+ * Implementace repository NonFinancialAssets (nefinanci aktiva)
+ * @author pc
+ *
+ */
 @Repository(value = "nonFinancialAssetsRepository")
 public class NonFinancialAssetsRepositoryImpl extends AbstractRepository<NonFinancialAssets> implements NonFinancialAssetsRepository {
 
+	/**
+	 * Dej seznam vsech nefinancich aktiv podle avataru
+	 */
 	@Override
 	public List<NonFinancialAssets> getNonFinancialAssetsListByAvatar(Avatar avatar) {
 		final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -29,12 +37,18 @@ public class NonFinancialAssetsRepositoryImpl extends AbstractRepository<NonFina
 			return null;
 		}
 	}
-
+	
+	/**
+	 * Vytvor nove aktivum
+	 */
 	@Override
 	public void createNonFinancialAssets(NonFinancialAssets nonFinancialAssets) {
 		create(nonFinancialAssets);
 	}
 
+	/**
+	 * Smaz aktivum
+	 */
 	@Override
 	public NonFinancialAssets updateNonFinancialAssets(NonFinancialAssets nonFinancialAssets) {
 		update(nonFinancialAssets);

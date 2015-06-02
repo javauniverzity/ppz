@@ -6,9 +6,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.ppz.web.entity.User;
 
 /**
- * REPOSITORY object for accession the database.
+ * Objekt repository pro prisutp do databaze
  * 
- * @author Pavel Lukes
+ * @author David
  * 
  */
 public interface UserRepository {

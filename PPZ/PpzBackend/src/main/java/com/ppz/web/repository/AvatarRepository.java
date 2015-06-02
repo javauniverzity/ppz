@@ -3,13 +3,12 @@ package com.ppz.web.repository;
 import com.ppz.web.entity.Avatar;
 
 /**
- * REPOSITORY interface for Avatar entity specific methods
- * 
- * 
+ * Interface repository specifickych metod pro entitu avatar
+ * @author David
  * 
  */
 public interface AvatarRepository extends GenericRepository<Avatar> {
 
-	// no specific method for Avatar
+	// zadne specificke metody pro avatara
 
 }

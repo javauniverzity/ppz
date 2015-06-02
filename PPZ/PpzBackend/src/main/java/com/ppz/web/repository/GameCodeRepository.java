@@ -5,42 +5,35 @@ import java.util.List;
 import com.ppz.web.entity.GameCode;
 
 /**
- * REPOSITORY interface for object for entity GameCode
- * 
- * 
- * 
+ * Interface repository pro entitu objektu GameCode
+ * @author David
  */
 public interface GameCodeRepository {
 
 	/**
-	 * Create and save GameCode entity
-	 * @param gameCode - object to persist
+	 * Vytvori a ulozi entitu GameCode
+	 * @param gameCode - objekt do persist
 	 */
 	void createGameCode(GameCode gameCode);
 	
 	/**
-	 * Update GameCode entity
-	 * @param gameCode - object to persist
+	 * Aktualizuje entitu GameCode
+	 * @param gameCode - objekt do persist
 	 */
 	void updateGameCode(GameCode gameCode);
 	
 	/**
-	 * Get list of all gamesCodes
-	 * @return list of all Games
+	 * Dej seznam vsech GameCodu
 	 */
 	List<GameCode> getGameCodeList();
 	
 	/**
-	 * Get gameCode by game id
-	 * @param gamecodeId - gameCode identification
-	 * @return gameCode identified by id
+	 * Dej GameCode podle Id
 	 */
 	GameCode getGameCode(Long gameId);
 
 	/**
-	 * Get gameCode by gameCode value
-	 * @param gameCode - gameCode value
-	 * @return gameCode identified by gameCode
+	 * Dej GameCode podle hodnoty
 	 */
 	GameCode getGameCode(String gameCode);
 	

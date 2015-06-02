@@ -16,6 +16,11 @@ import com.ppz.web.entity.LinkedPerson;
 import com.ppz.web.entity.PossibleEvent;
 import com.ppz.web.interfaces.service.PpzService;
 
+/**
+ * Komponenta, ktera ovlada logiku hry a dalsi komponenty
+ * @author David
+ *
+ */
 @Component
 public class KomendiusComponent {
 
@@ -28,7 +33,7 @@ public class KomendiusComponent {
 
 		if (gameCode != null && gameCode.getGame() != null && gameCode.getGame().getAvatar() != null) {
 
-			// get all linked persons
+			// dej vsechny spojene osoby
 			List<LinkedPerson> linkedPersonByAvatar = ppzService.getLinkedPersonByAvatar(gameCode.getGame().getAvatar(), actualTime);
 
 			if (linkedPersonByAvatar != null) {
@@ -44,7 +49,7 @@ public class KomendiusComponent {
 
 							System.out.println("WORKING WITH PE: " + possibleEvent);
 
-							// get probabilities for each of possible event
+							// dej pravedpodbnost kazde mozne udalosti
 
 							System.out.println("..getting probabilities");
 
@@ -53,13 +58,13 @@ public class KomendiusComponent {
 							if (eventProbabilityList != null) {
 								for (EventProbability eventProbability : eventProbabilityList) {
 
-									// we will compare AGEs
+									// budeme srovnavat roky
 									if (PossibleEvent.POSSIBLE_EVENT_ROOT_DECISION_FAMILY.equals(possibleEvent.getRootDecision())) {
 
-										// decide who ages
+										// rozhodneme kdo je jak stary
 										//
 
-										// for DOG
+										// pro psa
 										if (LinkedPerson.PERSON_TYPE_DOG.equals(possibleEvent.getDecisionType())) {
 
 											Boolean ageCheck = chceckAges(eventProbability.getAgeFrom(), eventProbability.getAgeTo(), linkedPerson.getAge());
@@ -74,8 +79,7 @@ public class KomendiusComponent {
 
 												System.out.println("... compute probability of event occurence result: " + randomResult);
 
-												// if possible event occur we
-												// compute impact
+												// kdyz se objevi udalost, spocitame jeji dopad											
 												if (randomResult) {
 
 													System.out.println("... PossibleEvent impact compute");
@@ -111,10 +115,9 @@ public class KomendiusComponent {
 
 						}
 
-					} // neexistuje zadna mozna udalost pro danou entitu a jeji
-						// typ
+					} // neexistuje zadna mozna udalost pro danou entitu a jeji typ
 
-					// for alive person do person older
+					// zive osobe pridej vek
 					if (!isPersonDead) {
 
 						System.out.println("... go with person to next round");
@@ -125,7 +128,7 @@ public class KomendiusComponent {
 						lpForNextRound.setAvatar(linkedPerson.getAvatar());
 						lpForNextRound.setName(linkedPerson.getName());
 
-						// person is older
+						// osoba je starsi
 						lpForNextRound.setAge(linkedPerson.getAge() + 1);
 						lpForNextRound.setRoundNo(actualTime + 1);
 
@@ -135,7 +138,7 @@ public class KomendiusComponent {
 
 				}
 			}
-
+//			zakomitovano
 //			Game updatedGame = ppzService.getGame(gameCode);
 //			gameCode.setGame(updatedGame);
 
@@ -145,12 +148,12 @@ public class KomendiusComponent {
 		
 		Game updatedGame = ppzService.getGame(gameCode);
 
-		// set avatar older
+		// udelej avatara starsiho
 		Avatar avatar = updatedGame.getAvatar();
 		avatar.setAge(avatar.getAge() + 1);
 		ppzService.updateAvatar(avatar);
 		
-		// increase round
+		// zaved dalsi kolo
 		updatedGame.setRoundPlayed(actualTime);
 		
 		Calendar cal = Calendar.getInstance();
@@ -175,14 +178,14 @@ public class KomendiusComponent {
 
 		Double objectAge = objectAgeInMonths / (double) 12;
 
-		// if we have lower bound
+		// kdyz dosahneme dolni hranice
 		if (eventFrom != null) {
 			if (objectAge < eventFrom) {
 				return Boolean.FALSE;
 			}
 		}
 
-		// if we have upper bound
+		// kdyz dosahneme horni hranice
 		if (eventTo != null) {
 			if (objectAge > eventTo) {
 				return Boolean.FALSE;

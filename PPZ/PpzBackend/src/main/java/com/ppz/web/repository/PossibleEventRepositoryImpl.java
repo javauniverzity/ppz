@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.ppz.web.entity.PossibleEvent;
 
+/**
+ * Implementace repository pro entitu PossibleEvent
+ * @author David
+ *
+ */
 @Repository(value = "possibleEventRepository")
 public class PossibleEventRepositoryImpl extends AbstractRepository<PossibleEvent> implements PossibleEventRepository {
 
@@ -15,6 +20,9 @@ public class PossibleEventRepositoryImpl extends AbstractRepository<PossibleEven
 		return PossibleEvent.class;
 	}
 
+	/**
+	 * Dej seznam moznych udalosti
+	 */
 	@Override
 	public List<PossibleEvent> getPossibleEventList(Integer rootDecision, Integer decisionType) {
 		Map<String, Object> filter = new HashMap<String, Object>();

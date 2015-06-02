@@ -9,9 +9,17 @@ import org.springframework.stereotype.Repository;
 import com.ppz.web.entity.Avatar;
 import com.ppz.web.entity.LinkedPerson;
 
+/**
+ * Implementace repository LinkedPerson
+ * @author David
+ *
+ */
 @Repository(value = "linkedPersonRepository")
 public class LinkedPersonRepositoryImpl extends AbstractRepository<LinkedPerson> implements LinkedPersonRepository {
 
+	/**
+	 * Dej seznam LinkedPerson podle avataru
+	 */
 	@Override
 	public List<LinkedPerson> getLinkedPersonListByAvatar(Avatar avatar, Long round) {
 		Map<String, Object> filter = new HashMap<String, Object>();

@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 import com.ppz.web.component.GameCodeComponent;
 import com.ppz.web.entity.GameCode;
 
+/**
+ * Implementace repository objektu GameCode
+ * @author David
+ *
+ */
 @Repository(value = "gameCodeRepository")
 public class GameCodeRepositoryImpl extends AbstractRepository<GameCode>
 		implements GameCodeRepository {
@@ -22,7 +27,7 @@ public class GameCodeRepositoryImpl extends AbstractRepository<GameCode>
 
 		if (gameCode != null) {
 
-			// for case that code is null we will create new unique one
+			// pro pripad, ze je kod nula, vytvorime novy
 			if (gameCode.getCode() == null) {
 				String newUniqueCode = gameCodeComponent
 						.generateUniqueGameCode();
@@ -48,7 +53,9 @@ public class GameCodeRepositoryImpl extends AbstractRepository<GameCode>
 	public GameCode getGameCode(Long gameCodeId) {
 		return loadById(GameCode.class, gameCodeId);
 	}
-
+	/**
+	 * Dej retezec GameCode
+	 */
 	@Override
 	public GameCode getGameCode(String gameCode) {
 		if (gameCode == null || "".equals(gameCode)) {

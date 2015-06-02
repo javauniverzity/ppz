@@ -9,10 +9,17 @@ import org.springframework.stereotype.Repository;
 import com.ppz.web.entity.EventImpact;
 import com.ppz.web.entity.PossibleEvent;
 
+/**
+ * Implementace repository EventImpact
+ * @author David
+ *
+ */
 @Repository(value = "eventImpactRepository")
 public class EventImpactRepositoryImpl extends AbstractRepository<EventImpact> implements EventImpactRepository {
 
-
+	/**
+	 *Vezme list udalosti a podle pravdepodobnosti urcitou vybere 
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<EventImpact> getEventImpactListByPossibleEvent(PossibleEvent possibleEvent) {

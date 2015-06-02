@@ -9,10 +9,17 @@ import org.springframework.stereotype.Repository;
 import com.ppz.web.entity.EventProbability;
 import com.ppz.web.entity.PossibleEvent;
 
+/**
+ * Implementace repository EventProbability
+ * @author David
+ *
+ */
 @Repository(value = "eventProbabilityRepository")
 public class EventProbabilityRepositoryImpl extends AbstractRepository<EventProbability> implements EventProbabilityRepository {
 
-
+	/**
+	 * Vem seznam pravdepodobnosti udalosti a vyber moznou udalost
+	 */
 	@Override
 	public List<EventProbability> getEventProbabilityList(PossibleEvent possibleEvent) {
 

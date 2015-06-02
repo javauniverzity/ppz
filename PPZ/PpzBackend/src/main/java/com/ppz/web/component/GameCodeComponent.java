@@ -7,11 +7,20 @@ import org.springframework.stereotype.Component;
 
 import com.ppz.web.repository.UserRepository;
 
+/**
+ * Komponenta, ktera ma starosti vytvoreni kodu do hry
+ * @author David
+ *
+ */
 @Component
 public class GameCodeComponent {
 	
 	@Autowired
 	UserRepository userRepository;
+	
+	/**
+	 * generuje jedinecny kod hry z predchystanych znaku a stanovene delky kodu
+	 */
 	
 	public String generateUniqueGameCode() {
 		while (true) {

@@ -6,10 +6,8 @@ import com.ppz.web.entity.Avatar;
 import com.ppz.web.entity.LinkedPerson;
 
 /**
- * REPOSITORY object for entity LinkedPerson specific methods.
- * 
- * 
- * 
+ * Repository specifickych metod objektu pro entitu LinkedPerson 
+ * @author David
  */
 public interface LinkedPersonRepository extends GenericRepository<LinkedPerson> {
 
