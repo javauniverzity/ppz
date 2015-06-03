@@ -10,6 +10,11 @@ import org.apache.cxf.rs.security.cors.CrossOriginResourceSharing;
 
 import com.ppz.api.rest.entity.GetUsersResponse;
 
+/**
+ * Obecne nastaveni rozhrani
+ * @author David
+ *
+ */
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @CrossOriginResourceSharing(allowAllOrigins = true)
