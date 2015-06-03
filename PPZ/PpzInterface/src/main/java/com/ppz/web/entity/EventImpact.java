@@ -10,10 +10,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity for EventImpact data
- * 
- * 
- * 
  */
+
 @Entity
 @Table(name = "EVENT_IMPACT")
 public class EventImpact {
@@ -98,8 +96,9 @@ public class EventImpact {
 
 	@Override
 	public String toString() {
-		return "EventImpact [eventImpactId=" + eventImpactId + ", type=" + type + ", impactSize=" + impactSize + ", insuredImpact=" + insuredImpact
-				+ ", possibleEvent=" + possibleEvent + "]";
+		return "EventImpact [eventImpactId=" + eventImpactId + ", type=" + type
+				+ ", impactSize=" + impactSize + ", insuredImpact="
+				+ insuredImpact + ", possibleEvent=" + possibleEvent + "]";
 	}
 
 }

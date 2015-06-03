@@ -17,10 +17,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity for Game Code data
- * 
- * 
- * 
  */
+
 @Entity
 @Table(name = "GAME_CODE", uniqueConstraints = @UniqueConstraint(columnNames = { "code" }))
 @NamedQueries({ @NamedQuery(name = "GameCode.findAll", query = "SELECT g FROM GameCode g"),
@@ -28,7 +26,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class GameCode {
 	
 	/**
-	 * nazev klice pro ulozeni kodu do session aplikace
+	 * Name of key for save code to aplication session
 	 */
 	public static final String GAME_CODE = "GAME_CODE";
 

@@ -12,10 +12,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity for EventProbability data
- * 
- * 
- * 
  */
+
 @Entity
 @Table(name = "EVENT_PROBABILITY")
 public class EventProbability {
@@ -56,7 +54,7 @@ public class EventProbability {
 	 * Probability to occur linked possible event
 	 */
 	private Double probability;
-	
+
 	/**
 	 * Probability of concrete possible event
 	 */
@@ -121,8 +119,10 @@ public class EventProbability {
 
 	@Override
 	public String toString() {
-		return "EventProbability [eventProbabilityId=" + eventProbabilityId + ", ageFrom=" + ageFrom + ", ageTo=" + ageTo + ", valueFrom=" + valueFrom
-				+ ", valueTo=" + valueTo + ", probability=" + probability + ", possibleEvent=" + possibleEvent + "]";
+		return "EventProbability [eventProbabilityId=" + eventProbabilityId
+				+ ", ageFrom=" + ageFrom + ", ageTo=" + ageTo + ", valueFrom="
+				+ valueFrom + ", valueTo=" + valueTo + ", probability="
+				+ probability + ", possibleEvent=" + possibleEvent + "]";
 	}
 
 }

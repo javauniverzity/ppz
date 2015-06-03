@@ -13,6 +13,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 import com.ppz.web.utils.Exclude;
 
+/**
+ * Entity for Financial assets data
+ */
+
 @Entity
 @Table(name = "FINANCIAL_ASSETS")
 public class FinancialAssets {
@@ -21,23 +25,47 @@ public class FinancialAssets {
 
 	public static final Integer AVATAR_FEMALE = 2;
 
+	/**
+	 * Financial asset ID
+	 */
 	@Id
 	@GenericGenerator(name = "generator", strategy = "identity")
 	@GeneratedValue(generator = "generator")
 	private Long financialAssetsId;
 
+	/**
+	 * Financial assets type
+	 */
 	private Integer type;
 
+	/**
+	 * Financial assets value
+	 */
 	private BigDecimal value;
 
+	/**
+	 * Financial assets monthly outcome
+	 */
 	private BigDecimal monthlyOutcome;
 
+	/**
+	 * Financial assets amount for last year
+	 */
 	private BigDecimal lastYearStoredAmount;
 
+	/**
+	 * Count of shares
+	 */
 	private Integer sharesCount;
 
+	/**
+	 * Count of bods
+	 */
 	private Integer bondsCount;
 
+	/**
+	 * Count of monetary funds
+	 */
 	private Integer monetaryFundsCount;
 
 	private BigDecimal insuredSum;
@@ -48,24 +76,30 @@ public class FinancialAssets {
 
 	private Date endOfStage;
 
+	/**
+	 * Income from interest
+	 */
 	private BigDecimal interest;
 
 	private Date endTime;
 
+	/**
+	 * Target amount
+	 */
 	private BigDecimal targetAmount;
 
 	/**
-	 * This entity exist in this round number (historical reason)  
+	 * This entity exist in this round number (historical reason)
 	 */
 	private Long roundNo;
-	
+
 	/**
 	 * Owner of financial assets
 	 */
 	@ManyToOne(optional = false)
 	@Exclude
 	private Avatar avatar;
-	
+
 	public Avatar getAvatar() {
 		return avatar;
 	}
@@ -188,10 +222,15 @@ public class FinancialAssets {
 
 	@Override
 	public String toString() {
-		return "FinancialAssets [financialAssetsId=" + financialAssetsId + ", type=" + type + ", value=" + value + ", monthlyOutcome=" + monthlyOutcome
-				+ ", lastYearStoredAmount=" + lastYearStoredAmount + ", sharesCount=" + sharesCount + ", bondsCount=" + bondsCount + ", monetaryFundsCount="
-				+ monetaryFundsCount + ", insuredSum=" + insuredSum + ", endOfStage=" + endOfStage + ", interest=" + interest + ", endTime=" + endTime
-				+ ", targetAmount=" + targetAmount + ", roundNo=" + roundNo + ", avatar=" + avatar + "]";
+		return "FinancialAssets [financialAssetsId=" + financialAssetsId
+				+ ", type=" + type + ", value=" + value + ", monthlyOutcome="
+				+ monthlyOutcome + ", lastYearStoredAmount="
+				+ lastYearStoredAmount + ", sharesCount=" + sharesCount
+				+ ", bondsCount=" + bondsCount + ", monetaryFundsCount="
+				+ monetaryFundsCount + ", insuredSum=" + insuredSum
+				+ ", endOfStage=" + endOfStage + ", interest=" + interest
+				+ ", endTime=" + endTime + ", targetAmount=" + targetAmount
+				+ ", roundNo=" + roundNo + ", avatar=" + avatar + "]";
 	}
 
 }

@@ -11,6 +11,10 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * Entity for user Avatar data
+ */
+
 @Entity
 @Table(name = "AVATAR")
 public class Avatar {
@@ -19,40 +23,88 @@ public class Avatar {
 
 	public static final Integer AVATAR_FEMALE = 2;
 
+	/**
+	 * Avatar ID
+	 */
 	@Id
 	@GenericGenerator(name = "generator", strategy = "identity")
 	@GeneratedValue(generator = "generator")
 	private Long avatarId;
 
-//	@Size(max = 10, message = "validator.avatar.name.size")
+	/**
+	 * Avatar name
+	 */
+	// @Size(max = 10, message = "validator.avatar.name.size")
 	private String name;
 
+	/**
+	 * Avatar age
+	 */
 	private Long age;
 
+	/**
+	 * Avatar income
+	 */
 	private BigDecimal income;
 
+	/**
+	 * Avatar income from other business
+	 */
 	private BigDecimal otherIncome;
 
+	/**
+	 * Avatar costs for lease
+	 */
 	private BigDecimal leaseCosts;
 
+	/**
+	 * Avatar costs for energy
+	 */
 	private BigDecimal energyCosts;
 
+	/**
+	 * Avatar costs for food
+	 */
 	private BigDecimal foodCosts;
 
+	/**
+	 * Avatr costs for free time activity
+	 */
 	private BigDecimal freeTimeCosts;
 
+	/**
+	 * Avatar costs for traffic
+	 */
 	private BigDecimal trafficCosts;
 
+	/**
+	 * Avatar costs for clothes
+	 */
 	private BigDecimal clothesCosts;
 
+	/**
+	 * Avatar costs for vacation
+	 */
 	private BigDecimal vacationCosts;
 
+	/**
+	 * Avatar costs for phone
+	 */
 	private BigDecimal phoneCosts;
 
+	/**
+	 * Avatar costs for smoking
+	 */
 	private BigDecimal smokeCosts;
 
+	/**
+	 * Avatar other costs
+	 */
 	private BigDecimal otherCosts;
 
+	/**
+	 * Avatar alie or not?
+	 */
 	private Boolean alive;
 
 	private Boolean template;
@@ -239,7 +291,8 @@ public class Avatar {
 		return nonFinancialAssetsList;
 	}
 
-	public void setNonFinancialAssetsList(List<NonFinancialAssets> nonFinancialAssetsList) {
+	public void setNonFinancialAssetsList(
+			List<NonFinancialAssets> nonFinancialAssetsList) {
 		this.nonFinancialAssetsList = nonFinancialAssetsList;
 	}
 
@@ -253,10 +306,16 @@ public class Avatar {
 
 	@Override
 	public String toString() {
-		return "Avatar [avatarId=" + avatarId + ", name=" + name + ", age=" + age + ", income=" + income + ", otherIncome=" + otherIncome + ", leaseCosts="
-				+ leaseCosts + ", energyCosts=" + energyCosts + ", foodCosts=" + foodCosts + ", freeTimeCosts=" + freeTimeCosts + ", trafficCosts="
-				+ trafficCosts + ", clothesCosts=" + clothesCosts + ", vacationCosts=" + vacationCosts + ", phoneCosts=" + phoneCosts + ", smokeCosts="
-				+ smokeCosts + ", otherCosts=" + otherCosts + ", alive=" + alive + ", template=" + template + ", type=" + type + "]";
+		return "Avatar [avatarId=" + avatarId + ", name=" + name + ", age="
+				+ age + ", income=" + income + ", otherIncome=" + otherIncome
+				+ ", leaseCosts=" + leaseCosts + ", energyCosts=" + energyCosts
+				+ ", foodCosts=" + foodCosts + ", freeTimeCosts="
+				+ freeTimeCosts + ", trafficCosts=" + trafficCosts
+				+ ", clothesCosts=" + clothesCosts + ", vacationCosts="
+				+ vacationCosts + ", phoneCosts=" + phoneCosts
+				+ ", smokeCosts=" + smokeCosts + ", otherCosts=" + otherCosts
+				+ ", alive=" + alive + ", template=" + template + ", type="
+				+ type + "]";
 	}
 
 }

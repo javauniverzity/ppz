@@ -9,10 +9,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity for Financial Advisor data
- * 
- * 
- * 
  */
+
 @Entity
 @Table(name = "ADVISOR")
 public class Advisor {
@@ -126,8 +124,10 @@ public class Advisor {
 
 	@Override
 	public String toString() {
-		return "Advisor [advisorId=" + advisorId + ", name=" + name + ", surname=" + surname + ", street=" + street + ", city=" + city + ", post=" + post
-				+ ", streetNo=" + streetNo + ", email=" + email + "]";
+		return "Advisor [advisorId=" + advisorId + ", name=" + name
+				+ ", surname=" + surname + ", street=" + street + ", city="
+				+ city + ", post=" + post + ", streetNo=" + streetNo
+				+ ", email=" + email + "]";
 	}
 
 }

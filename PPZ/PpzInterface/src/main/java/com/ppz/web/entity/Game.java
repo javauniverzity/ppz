@@ -17,10 +17,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity for Game data
- * 
- * 
- * 
  */
+
 @Entity
 @Table(name = "GAME")
 @NamedQueries({ @NamedQuery(name = "Game.findAll", query = "SELECT g FROM Game g"),

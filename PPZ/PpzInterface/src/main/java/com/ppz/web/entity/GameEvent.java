@@ -13,10 +13,8 @@ import com.ppz.web.utils.Exclude;
 
 /**
  * Entity for GameEvent data
- * 
- * 
- * 
  */
+
 @Entity
 @Table(name = "GAME_EVENT")
 public class GameEvent {

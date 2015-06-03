@@ -11,13 +11,23 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * Entity for NonFinancial assets
+ */	
+
 @Entity
 @Table(name = "NON_FINANCIAL_ASSETS")
 public class NonFinancialAssets {
 
+	/**
+	 * Assets type to number identifier
+	 */	
 	public static final Integer TYPE_CAR = 1;
 	public static final Integer TYPE_REALTY = 2;
 
+	/**
+	 * Assets subtype to number identifier
+	 */	
 	public static final Integer SUBTYPE_CAR_LOWER_CLASS = 1;
 	public static final Integer SUBTYPE_CAR_UPPER_CLASS = 2;
 	public static final Integer SUBTYPE_CAR_SPORT = 3;
@@ -34,20 +44,44 @@ public class NonFinancialAssets {
 	@GeneratedValue(generator = "generator")
 	private Long nonFinancialAssetsId;
 
+	/**
+	 * Asset name
+	 */	
 	private String name;
 
+	/**
+	 * Asset type
+	 */	
 	private Integer type;
 
+	/**
+	 * Asset subtype
+	 */	
 	private Integer subType;
 
+	/**
+	 * Regular monthly income from asset
+	 */	
 	private BigDecimal regularlyMonthlyIncome;
 
+	/**
+	 * Regular monthly expenses for asset
+	 */	
 	private BigDecimal regularlyMonthlyExpenses;
 
+	/**
+	 * Last try to sold
+	 */	
 	private Date lastTryToSold;
 
+	/**
+	 * Last try to rent
+	 */	
 	private Date lastTryToRent;
 
+	/**
+	 * Date of origin
+	 */	
 	private Date originDate;
 
 	/**

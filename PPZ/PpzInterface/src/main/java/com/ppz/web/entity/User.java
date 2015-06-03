@@ -16,10 +16,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * Data used for user authentication and authorization.
- * 
- * @author Pavel Lukes
- * 
  */
+
 @Entity
 @Table(name = "USER")
 public class User implements Serializable, UserDetails {
@@ -35,7 +33,7 @@ public class User implements Serializable, UserDetails {
 	 * administrator
 	 */
 	public static final String ROLE_ADMIN = "ROLE_ADMIN";
-	
+
 	/**
 	 * poradce
 	 */
@@ -68,13 +66,12 @@ public class User implements Serializable, UserDetails {
 	 * heslo uzivatele
 	 */
 	private String password;
-	
+
 	/**
 	 * role uzivatele
 	 */
 	@Transient
 	private Set<Authority> authorities;
-
 
 	/**
 	 * preferovana lokalizace
@@ -108,7 +105,6 @@ public class User implements Serializable, UserDetails {
 	public void setAuthorities(final Set<Authority> authorities) {
 		this.authorities = authorities;
 	}
-
 
 	public String getRoles() {
 		return roles;
@@ -158,7 +154,8 @@ public class User implements Serializable, UserDetails {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", roles=" + roles + ", username=" + username + ", password=" + password + ", locale=" + locale + "]";
+		return "User [id=" + id + ", roles=" + roles + ", username=" + username
+				+ ", password=" + password + ", locale=" + locale + "]";
 	}
 
 }

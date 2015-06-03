@@ -12,6 +12,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 import com.ppz.web.utils.Exclude;
 
+/**
+ * Entity for Linked person data
+ */
+
 @Entity
 @Table(name = "LINKED_PERSON")
 public class LinkedPerson {
@@ -21,6 +25,9 @@ public class LinkedPerson {
 	public static final Integer PERSON_TYPE_CHILD = 3;
 	public static final Integer PERSON_TYPE_DOG = 4;
 
+	/**
+	 * Linked person ID
+	 */	
 	@Id
 	@GenericGenerator(name = "generator", strategy = "identity")
 	@GeneratedValue(generator = "generator")
@@ -37,15 +44,21 @@ public class LinkedPerson {
 	 */
 	private Integer type;
 
+	/**
+	 * Expenses for linked person
+	 */
 	private BigDecimal expenses;
-	
+
+	/**
+	 * Name of linked person
+	 */
 	private String name;
 
 	/**
-	 * This entity exist in this round number (historical reason)  
+	 * This entity exist in this round number (historical reason)
 	 */
 	private Long roundNo;
-	
+
 	/**
 	 * Owner of linked person
 	 */
@@ -111,7 +124,8 @@ public class LinkedPerson {
 
 	@Override
 	public String toString() {
-		return "LinkedPerson [linkedPersonId=" + linkedPersonId + ", age=" + age + ", type=" + type + ", expenses=" + expenses + ", roundNo=" + roundNo
-				+ ", avatar=" + avatar + "]";
+		return "LinkedPerson [linkedPersonId=" + linkedPersonId + ", age="
+				+ age + ", type=" + type + ", expenses=" + expenses
+				+ ", roundNo=" + roundNo + ", avatar=" + avatar + "]";
 	}
 }

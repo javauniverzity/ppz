@@ -9,10 +9,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity for PossibleEvent data
- * 
- * 
- * 
  */
+
 @Entity
 @Table(name = "POSSIBLE_EVENT")
 public class PossibleEvent {
@@ -65,7 +63,6 @@ public class PossibleEvent {
 
 	/**
 	 * Type of decision, linked by rootDecision to concrete enum
-	 * 
 	 */
 	private Integer decisionType;
 
