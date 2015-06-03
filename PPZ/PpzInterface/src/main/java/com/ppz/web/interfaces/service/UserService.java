@@ -6,6 +6,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.ppz.web.entity.User;
 
+/**
+ * Functionality for User object
+ */	
+
 public interface UserService extends UserDetailsService {
 
 	@Override

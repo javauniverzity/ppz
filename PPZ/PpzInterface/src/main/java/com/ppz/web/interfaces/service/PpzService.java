@@ -16,17 +16,15 @@ import com.ppz.web.entity.PossibleEvent;
 
 /**
  * PPZ service - main functionality from repositories
- * 
- * 
- *
  */
+
 public interface PpzService {
 
 	/**********************
 	 * AVATARs
 	 **********************/
 	Avatar getAvatar(Long id);
-	
+
 	void createAvatar(Avatar avatar);
 
 	Avatar updateAvatar(Avatar avatar);
@@ -35,50 +33,50 @@ public interface PpzService {
 	 * ADVISORs
 	 **********************/
 	void createAdvisor(Advisor advisor);
-	
+
 	List<Advisor> getAdvisorList();
-	
+
 	/**********************
 	 * GAMEs
 	 **********************/
 
 	void createGame(Game game);
-	
+
 	void updateGame(Game game);
-	
+
 	Game getGame(Long gameId);
 
 	Game getGame(GameCode gameCode);
-	
+
 	List<Game> getGameList();
 
-	List<GameEvent> getLAllGameEvenList(Game game);	
+	List<GameEvent> getLAllGameEvenList(Game game);
 
 	/**********************
 	 * GAME CODEs
 	 **********************/
 	GameCode getGameCode(Long gameCodeId);
-	
+
 	List<GameCode> getGameCodeList();
-	
+
 	void createGameCode(GameCode gameCode);
-	
+
 	void updateGameCode(GameCode gameCode);
-	
+
 	GameCode getGameCode(String gameCode);
 
 	/**********************
 	 * FINANCIAL ASSETS
 	 **********************/
-	
+
 	FinancialAssets getFinancialAssets(Long financialAssetsId);
-	
+
 	List<FinancialAssets> getFinancialAssetsByAvatar(Avatar avatar);
 
 	void createFinancialAssets(FinancialAssets financialAssets);
 
 	FinancialAssets updateFinancialAssets(FinancialAssets financialAssets);
-	
+
 	void deleteFinancialAssets(FinancialAssets financialAssets);
 
 	/**********************
@@ -88,7 +86,8 @@ public interface PpzService {
 
 	void createNonFinancialAssets(NonFinancialAssets nonFinancialAssets);
 
-	NonFinancialAssets updateNonFinancialAssets(NonFinancialAssets nonFinancialAssets);
+	NonFinancialAssets updateNonFinancialAssets(
+			NonFinancialAssets nonFinancialAssets);
 
 	/**********************
 	 * LINKED PERSONs
@@ -98,31 +97,32 @@ public interface PpzService {
 	void createLinkedPerson(LinkedPerson linkedPerson);
 
 	LinkedPerson updateLinkedPerson(LinkedPerson linkedPerson);
-	
+
 	void deleteLinkedPerson(LinkedPerson linkedPerson);
-	
+
 	LinkedPerson getLinkedPerson(Long linkedPersonId);
-	
+
 	/**********************
 	 * POSSIBLE EVENTs
 	 **********************/
 	void createPossibleEvent(PossibleEvent possibleEvent);
 
 	PossibleEvent updatePossibleEvent(PossibleEvent possibleEvent);
-	
+
 	PossibleEvent getPossibleEvent(Long possibleEventId);
-	
+
 	List<PossibleEvent> getPossibleEventList();
 
-	List<PossibleEvent> getPossibleEventList(Integer rootDecision, Integer decisionType);
-	
+	List<PossibleEvent> getPossibleEventList(Integer rootDecision,
+			Integer decisionType);
+
 	/**********************
 	 * EVENT PROBABILITies
 	 **********************/
 	void createEventProbability(EventProbability eventProbability);
 
 	EventProbability updateEventProbability(EventProbability eventProbability);
-	
+
 	List<EventProbability> getEventProbabilityList(PossibleEvent possibleEvent);
 
 	/**********************
@@ -131,8 +131,9 @@ public interface PpzService {
 	void createEventImpact(EventImpact eventImpact);
 
 	EventImpact updateEventImpact(EventImpact eventImpact);
-	
+
 	List<EventImpact> getEventImpactList();
-	
-	List<EventImpact> getEventImpactListByPossibleEvent(PossibleEvent possibleEvent);
+
+	List<EventImpact> getEventImpactListByPossibleEvent(
+			PossibleEvent possibleEvent);
 }
