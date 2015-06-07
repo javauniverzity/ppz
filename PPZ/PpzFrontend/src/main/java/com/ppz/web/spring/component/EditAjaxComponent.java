@@ -7,6 +7,8 @@ import com.ppz.web.interfaces.service.UserService;
 
 /**
  * Trida EditAjaxComponent, ktera se stara o editaci 
+ * 
+ * @author David
  */
 @Component
 public class EditAjaxComponent {

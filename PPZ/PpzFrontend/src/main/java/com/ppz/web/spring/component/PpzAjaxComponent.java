@@ -31,6 +31,8 @@ import com.ppz.web.utils.WebUtils;
 
 /**
  * Trida PpzAjaxComponent.
+ * 
+ * @author David
  */
 @Component(value = "ppzAjaxComponent")
 public class PpzAjaxComponent {
