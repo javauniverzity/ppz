@@ -5,12 +5,23 @@ import org.springframework.stereotype.Component;
 
 import com.ppz.web.interfaces.service.UserService;
 
+/**
+ * Trida EditAjaxComponent, ktera se stara o editaci 
+ */
 @Component
 public class EditAjaxComponent {
 	
+	/** User service. */
 	@Autowired
 	UserService userService;
 	
+	/**
+	 * Sada hodnot.
+	 *
+	 * @param value1 the value1
+	 * @param value2 the value2
+	 * @return the string
+	 */
 	public String setValue(String value1, String value2) {
 		System.out.println(value1);
 		System.out.println(value2);

@@ -9,21 +9,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Hlavni stranka, ktera resi kam za jake situace uzivatele presmerovat
- * 
- * @author Pavel Lukes
+ * Hlavni stranka, ktera resi kam za jake situace uzivatele presmerovat.
  *
+ * @author David
  */
 
 @Controller
 @RequestMapping(WebController.ACTION)
 public class WebController {
 	
+	/** Konstanta ACTION. */
 	public static final String ACTION = "web";
+	
+	/** Konstanta REDIRECT. */
 	public static final String REDIRECT = "redirect:" + ACTION + ".html";
 	
+	/** The logger. */
 	Logger logger = Logger.getLogger("logwebfile");
 
+	/**
+	 * Gets the.
+	 *
+	 * @param request zadost
+	 * @param response odpoved servletu
+	 * @return the string
+	 * @throws Exception vyjimka
+	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String get(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		logger.info("WebController: get");

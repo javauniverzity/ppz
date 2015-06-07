@@ -29,27 +29,48 @@ import com.ppz.web.spring.entity.FormattedGame;
 import com.ppz.web.utils.PpzExclusionStrategy;
 import com.ppz.web.utils.WebUtils;
 
+/**
+ * Trida PpzAjaxComponent.
+ */
 @Component(value = "ppzAjaxComponent")
 public class PpzAjaxComponent {
 	
+	/** Nastaveni sporiciho uctu. */
 	private BigDecimal sporUcetBallance = new BigDecimal("354221");
+	
+	/** Nastaveni typu hodnoty hypoteka. */
 	private BigDecimal hypotekaBallance = new BigDecimal("-2132556");
+	
+	/** Nataveni typu hodnoty spotrebitelsky uver. */
 	private BigDecimal spotrUverBallance = new BigDecimal("-126226");
+	
+	/** Nastaveni typu hodnoty investicni fond. */
 	private BigDecimal akciovyIFBallance = new BigDecimal("125223");
+	
+	/** The loc. */
 	private Locale loc = new Locale("cs", "CZ", "");
 	
+	/** The user service. */
 	@Autowired
 	UserService userService;
 
 	
+	/** The ppz service. */
 	@Autowired
 	PpzService ppzService;
 	
+	/** The kc. */
 	@Autowired
 	KomendiusComponent kc;
 
+	/** The logger. */
 	Logger logger = Logger.getLogger(PpzAjaxComponent.class);
 	
+	/**
+	 * Nastaveni typu komunikace mezi backendem a interfacem.
+	 *
+	 * @return the json
+	 */
 	public String getJson() {
 		try {
 			WebContext ctx = WebContextFactory.get();
@@ -99,6 +120,13 @@ public class PpzAjaxComponent {
 			return "";
 		}
 	}
+	
+	/**
+	 * Dej zmenu formatu meny.
+	 *
+	 * @param number the number
+	 * @return konvertovanou menu
+	 */
 	private String getConvertedCurrency(BigDecimal number) {
 		NumberFormat nf = NumberFormat.getNumberInstance(loc);
 		DecimalFormat df = (DecimalFormat)nf;
@@ -106,6 +134,11 @@ public class PpzAjaxComponent {
 		return df.format(number);
 	}
 		
+	/**
+	 * Dej hodnotu sporeni a vypocitej ji
+	 *
+	 * @return hodnotu sporeni
+	 */
 	private String getSporeniValue() {
 		BigDecimal urok = new BigDecimal("1.005");
 		BigDecimal pocatecniSuma = sporUcetBallance;
@@ -113,6 +146,12 @@ public class PpzAjaxComponent {
 		String konecnaSuma = getConvertedCurrency(sporUcetBallance);
 		return konecnaSuma;
 	}
+	
+	/**
+	 * Nastaveni hodnoty hypoteky a jeji vypocet
+	 *
+	 * @return hodnotu hypoteky
+	 */
 	private String getHypotekaValue() {
 		BigDecimal splatka = new BigDecimal("15537");
 		BigDecimal pocatecniSuma = hypotekaBallance;
@@ -120,6 +159,12 @@ public class PpzAjaxComponent {
 		String konecnaSuma = getConvertedCurrency(hypotekaBallance);
 		return konecnaSuma;
 	}
+	
+	/**
+	 * Nastaveni hodnoty spotrebitelskeho uveru a jeho vypocet
+	 *
+	 * @return hodnotu spotrebitelskeho uveru
+	 */
 	private String getSpotrUverValue() {
 		BigDecimal splatka = new BigDecimal("3245");
 		BigDecimal pocatecniSuma = spotrUverBallance;
@@ -127,6 +172,12 @@ public class PpzAjaxComponent {
 		String konecnaSuma = getConvertedCurrency(spotrUverBallance);
 		return konecnaSuma;
 	}
+	
+	/**
+	 * Nastaveni hodnoty akcioveho investicniho fondu a jeho vypocet
+	 *
+	 * @return hodnotu investicniho fondu
+	 */
 	private String getAkciovyIFValue() {
 		BigDecimal urok = new BigDecimal("1.012");
 		BigDecimal pocatecniSuma = akciovyIFBallance;
@@ -135,6 +186,11 @@ public class PpzAjaxComponent {
 		return konecnaSuma;
 	}
 		
+	/**
+	 * Nastaveni nahodne udalosti
+	 *
+	 * @return nahodou udalost
+	 */
 	private String getRandomEvent() {
 		try {
 			PossibleEvent possibleEvent = new PossibleEvent();
@@ -170,6 +226,11 @@ public class PpzAjaxComponent {
 		}
 	}
 	
+	/**
+	 * Dej detaily avatara pomoci jasonu
+	 *
+	 * @return avatar detail json
+	 */
 	public String getAvatarDetailJson() {
 		try {
 			// TODO dodelat pro vsechny ostatni objekty
@@ -199,6 +260,12 @@ public class PpzAjaxComponent {
 		}
 	}
 	
+	/**
+	 * Dej detaily o rodine pomoci json.
+	 *
+	 * @param type
+	 * @return detaily pomoci json
+	 */
 	public String getFamilyDetailJson(int type) {
 		try {
 			// TODO dodelat pro vsechny ostatni objekty family

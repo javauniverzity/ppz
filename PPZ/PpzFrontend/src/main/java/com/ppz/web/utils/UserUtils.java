@@ -7,10 +7,19 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.ppz.web.entity.User;
 
+/**
+ * Pomocna trida UserUtils, stara se o prihlaseni uzivatele.
+ */
 public class UserUtils {
 	
+	/** The logger. */
 	static Logger logger = Logger.getLogger(UserUtils.class);
 	
+	/**
+	 * Dej soucasne uzivatelske jmeno.
+	 *
+	 * @return the current username
+	 */
 	public static String getCurrentUsername(){
 		String username = "";
 		try {
@@ -26,6 +35,13 @@ public class UserUtils {
 		return username;
 	}
 
+	/**
+	 * Ziskej md5 hesla.
+	 *
+	 * @param user uzivatel
+	 * @param password heslo
+	 * @return md5 hesla
+	 */
 	public static String getMd5Password(User user, String password){
 		Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 		ReflectionSaltSource salt = new ReflectionSaltSource();

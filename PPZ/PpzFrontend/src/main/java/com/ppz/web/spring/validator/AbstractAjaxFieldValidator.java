@@ -8,21 +8,25 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
+/**
+ * Abstraktni trida kontrolor poli
+ * @author David
+ *
+ */
 public abstract class AbstractAjaxFieldValidator {
 	
 	Logger logger = Logger.getLogger("logwebfile");
 	
 	/**
-	 * Get the validation message for an individual input field of a model
-	 * object.
+	 * Dej potvrzovaci zpravu pro jednotlivy vklad do pole modelu objektu.
 	 * 
 	 * @param modelObject
-	 *            The object to validate against.
+	 *            Nastaveni kontrolniho objektu.
 	 * @param formInputId
-	 *            The id attribute of the form input field.
+	 *            Id atributu vstupniho pole formulare.
 	 * @param formInputValue
-	 *            The input value to be validated.
-	 * @return The validation message.
+	 *            Vstupni hodnota je zkontrolovana.
+	 * @return Kontrolni zpravu.
 	 */
 	public String getFieldInputValidationMessage(String locale, String formInputId, String formInputValue, String username) {
 
@@ -50,14 +54,13 @@ public abstract class AbstractAjaxFieldValidator {
 	}
 
 	/**
-	 * Get the FieldError validation message from the underlying MessageSource
-	 * for the given fieldName.
+	 * Dej kontrolni zpravu FieldError od MessageSource pro ziskani fieldName.
 	 * 
 	 * @param errors
-	 *            The validation errors.
+	 *            Chyby kontroly.
 	 * @param fieldName
-	 *            The fieldName to retrieve the error message from.
-	 * @return The validation message or an empty String.
+	 *            fieldName pro nacteni chybove hlasky.
+	 * @return Kontrolni zpravu nebo prazdny retezec.
 	 */
 	protected String getValidationMessage(Errors errors, String fieldName) {
 		String message = "";

@@ -26,29 +26,47 @@ import com.ppz.web.utils.Enums;
 import com.ppz.web.utils.WebUtils;
 
 /**
- * Stranka PPZ
- * 
- * @author Pavel Lukes
+ * Stranka PPZ.
  *
+ * @author Pavel Lukes
  */
 
 @Controller
 public class BankController {
 	
+	/** Konstanta ACTION. */
 	public static final String ACTION = "bank";
+	
+	/** Konstanta ACTION_ADD. */
 	public static final String ACTION_ADD = "bankAdd";
+	
+	/** Konstanta ACTION_REMOVE. */
 	public static final String ACTION_REMOVE = "bankRemove";
+	
+	/** Konstanta REDIRECT. */
 	public static final String REDIRECT = "redirect:" + ACTION + ".html";
 	
+	/** The user service. */
 	@Autowired
 	UserService userService;
 	
+	/** The ppz service. */
 	@Autowired
 	PpzService ppzService;
 	
 
+	/** The logger. */
 	Logger logger = Logger.getLogger(BankController.class);
 	
+	/**
+	 * Nastaveni metody Get.
+	 *
+	 * @param request zadost
+	 * @param res odpoved servletu
+	 * @param model model
+	 * @return the string
+	 * @throws Exception vyjimka
+	 */
 	@RequestMapping(value = ACTION, method = RequestMethod.GET)
 	public String get(HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
 		GameCode gameCode = WebUtils.getGameCode(request);
@@ -66,13 +84,13 @@ public class BankController {
 	}
 
 	/**
-	 * zobrazeni stranky pro pridani produktu
-	 * 
-	 * @param request
-	 * @param res
-	 * @param model
-	 * @return
-	 * @throws Exception
+	 * Zobrazeni stranky pro pridani produktu.
+	 *
+	 * @param request zadost
+	 * @param res odpoved servletu
+	 * @param model model
+	 * @return the adds the
+	 * @throws Exception vyjimka
 	 */
 	@RequestMapping(value = ACTION_ADD, method = RequestMethod.GET)
 	public String getAdd(HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
@@ -92,6 +110,16 @@ public class BankController {
 		return ACTION;
 	}
 	
+	/**
+	 * Odstraneni
+	 *
+	 * @param id identifikacni cislo
+	 * @param request zadost
+	 * @param res the res
+	 * @param model model
+	 * @return the removes the
+	 * @throws Exception vyjimky
+	 */
 	@RequestMapping(value = ACTION_REMOVE, method = RequestMethod.GET)
 	public String getRemove(@RequestParam("id") Long id, HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
 		GameCode gameCode = WebUtils.getGameCode(request);
@@ -111,14 +139,14 @@ public class BankController {
 	}
 	
 	/**
-	 * pridani produktu
-	 * 
-	 * @param product
-	 * @param result
-	 * @param model
-	 * @param request
-	 * @return
-	 * @throws Exception
+	 * pridani produktu.
+	 *
+	 * @param product the product
+	 * @param result the result
+	 * @param model the model
+	 * @param request the request
+	 * @return the string
+	 * @throws Exception the exception
 	 */
 	@RequestMapping(value = ACTION_ADD, method = RequestMethod.POST)
 	public String postAdd(@ModelAttribute(value="product") FinancialAssets product, BindingResult result, ModelMap model, HttpServletRequest request) throws Exception {
@@ -136,9 +164,11 @@ public class BankController {
 	}
 	
 	/**
-	 * Editace volána z dwr pomocí ajaxu
-	 * 
-	 * @return
+	 * Editace volani z db pomoci Ajaxu
+	 *
+	 * @param id the id
+	 * @param value the value
+	 * @return the string
 	 */
 	public String edit(String id, String value) {
 		BigDecimal bd = new BigDecimal(value);

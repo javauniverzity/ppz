@@ -15,24 +15,37 @@ import com.ppz.web.interfaces.service.UserService;
 import com.ppz.web.utils.UserUtils;
 
 /**
- * Stranka Editace ?zatim nekonkretni
- * 
- * @author Pavel Lukes
+ * Stranka Editace ?zatim nekonkretni.
  *
+ * @author David
  */
 
 @Controller
 @RequestMapping(EditController.ACTION)
 public class EditController {
 	
+	/** Konstanta ACTION. */
 	public static final String ACTION = "edit";
+	
+	/** Konstanta REDIRECT. */
 	public static final String REDIRECT = "redirect:" + ACTION + ".html";
 	
+	/** The user service. */
 	@Autowired
 	UserService userService;
 	
+	/** The logger. */
 	Logger logger = Logger.getLogger(EditController.class);
 
+	/**
+	 * Nastaveni metody Get
+	 *
+	 * @param request zadost
+	 * @param res odpoved servletu
+	 * @param model model
+	 * @return the string
+	 * @throws Exception vyjimka
+	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String get(HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
 		User user = userService.loadUserByUsername(UserUtils.getCurrentUsername());

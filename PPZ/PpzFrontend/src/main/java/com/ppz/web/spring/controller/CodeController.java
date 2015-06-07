@@ -21,50 +21,57 @@ import com.ppz.web.interfaces.service.UserService;
 import com.ppz.web.utils.WebUtils;
 
 /**
- * prihlaseni pomoci kodu
- * 
- * @author Pavel Lukes
+ * prihlaseni pomoci kodu.
  *
+ * @author David
  */
 
 @Controller
 @RequestMapping(CodeController.ACTION)
 public class CodeController {
 	
+	/** Konstanta ACTION. */
 	public static final String ACTION = "code";
+	
+	/** Konstanta REDIRECT. */
 	public static final String REDIRECT = "redirect:" + ACTION + ".html";
 	
+	/** The user service. */
 	@Autowired
 	UserService userService;
 	
+	/** The ppz service. */
 	@Autowired
 	PpzService ppzService;
 	
+	/** The logger. */
 	Logger logger = Logger.getLogger(CodeController.class);
 
-	/** 
-	 * zobrazeni stranky pro prihlaseni pomoci kodu 
-	 * 
-	 * @param request
-	 * @param res
-	 * @param model
-	 * @return
-	 * @throws Exception
+	/**
+	 *  
+	 * zobrazeni stranky pro prihlaseni pomoci kodu .
+	 *
+	 * @param request zadost
+	 * @param res odpoved servletu
+	 * @param model model
+	 * @return the string
+	 * @throws Exception vyjimka
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String get(HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
 		return ACTION;
 	}
 
-	/** 
-	 * prihlaseni uzivatele pomoci kodu hry
-	 * 
-	 * @param request
-	 * @param res
-	 * @param model
-	 * @param code
-	 * @return
-	 * @throws Exception
+	/**
+	 *  
+	 * prihlaseni uzivatele pomoci kodu hry.
+	 *
+	 * @param request zadost
+	 * @param res odpoved servletu
+	 * @param model model
+	 * @param code kod
+	 * @return the string
+	 * @throws Exception vyjimka
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public String post(HttpServletRequest request, HttpServletResponse res, ModelMap model, @RequestParam String code) throws Exception {
@@ -106,6 +113,11 @@ public class CodeController {
 	
 	}
 	
+	/**
+	 * Autentifikace uzivatele podle uzivatelskeho jmena
+	 *
+	 * @param username uzivatelske jmeno
+	 */
 	public void authenticationUserByUsername(String username) {
 	
 	}

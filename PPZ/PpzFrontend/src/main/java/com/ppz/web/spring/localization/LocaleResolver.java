@@ -11,12 +11,20 @@ import com.ppz.web.entity.User;
 import com.ppz.web.interfaces.service.UserService;
 import com.ppz.web.utils.UserUtils;
 
+/**
+ * Trida lokalni resici jednotka
+ * 
+ * @author David
+ *
+ */
 public class LocaleResolver extends AcceptHeaderLocaleResolver {
 	
 	Logger logger = Logger.getLogger(LocaleResolver.class);
 	
 	private static UserService userService;
-	
+	/**
+	 * Zpusob reseni lokalnich promennych pomoci zaslani pozadavku
+	 */
 	@Override
 	public Locale resolveLocale(HttpServletRequest request) {
 		Locale locale = null;
@@ -52,7 +60,11 @@ public class LocaleResolver extends AcceptHeaderLocaleResolver {
 		}
 		return locale; 
 	}
-	
+	/**
+	 * Nastaveni lokalniho uzivatele 
+	 * @param locale
+	 * @param request
+	 */
 	public void setLocale(Locale locale, HttpServletRequest request){
 		String username = UserUtils.getCurrentUsername();
 		User user = userService.loadUserByUsername(username);
@@ -71,6 +83,11 @@ public class LocaleResolver extends AcceptHeaderLocaleResolver {
 		LocaleResolver.userService = userService;
 	}
 
+	/**
+	 * Nastaveni jazyku lokalniho uzivatele
+	 * @param userLocale
+	 * @param request
+	 */
 	public void setLocale(String userLocale, HttpServletRequest request) {
 		for (Locale l : Locale.getAvailableLocales()) {
 			if (userLocale.equals(l.getLanguage())) {

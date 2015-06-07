@@ -14,7 +14,7 @@ import com.ppz.web.entity.Avatar;
 /**
  * Pomocna trida pro avatara
  * 
- * @author Jan Machacek
+ * @author David
  *
  */
 public class AvatarUtils {
@@ -25,8 +25,9 @@ public class AvatarUtils {
 	private static Locale loc = new Locale("cs", "CZ", "");
 	
 	/**
+	 * Nastaveni formatu meny
 	 * @param avatar
-	 * @return formatted currency value
+	 * @return upravena penezni hodnota
 	 */
 	public static String getFormattedCurrency(BigDecimal number) {
 		NumberFormat nf = NumberFormat.getNumberInstance(loc);
@@ -36,8 +37,9 @@ public class AvatarUtils {
 	}
 	
 	/**
+	 * Nastaveni financi avatara
 	 * @param avatar
-	 * @return unformatted avatar income sum
+	 * @return neformatovane financni prijmy avatara
 	 */
 	public static BigDecimal getIncomes(Avatar avatar) {
 		BigDecimal incomes = new BigDecimal("0");
@@ -57,15 +59,16 @@ public class AvatarUtils {
 	
 	/**
 	 * @param avatar
-	 * @return formatted avatar incomes sum
+	 * @return formatovane financni prijmy avatara
 	 */
 	public static String getFormattedIncomes(Avatar avatar) {
 		return AvatarUtils.getFormattedCurrency(AvatarUtils.getIncomes(avatar));
 	}
 	
 	/**
+	 * Nastaveni vydaju avatara
 	 * @param avatar
-	 * @return unformatted avatar outcome sum
+	 * @return neformatovane vydaje avatara
 	 */
 	public static BigDecimal getOutcomes(Avatar avatar) {
 		BigDecimal outcomes = new BigDecimal("0");
@@ -93,15 +96,16 @@ public class AvatarUtils {
 	
 	/**
 	 * @param avatar
-	 * @return formatted avatar outcomes sum
+	 * @return formatovane vydaje avatara
 	 */
 	public static String getFormattedOutcomes(Avatar avatar) {
 		return AvatarUtils.getFormattedCurrency(AvatarUtils.getOutcomes(avatar));
 	}
 	
 	/**
+	 * Nastaveni zjisteni rozdilu mezi prijmy a vydaji
 	 * @param avatar
-	 * @return unformatted incomes and outcomes distinct
+	 * @return neformatovane prijmy a vydaje a jejich rozdil
 	 */
 	public static BigDecimal getDistinct(Avatar avatar) {
 		BigDecimal income = AvatarUtils.getIncomes(avatar);
@@ -114,7 +118,7 @@ public class AvatarUtils {
 	
 	/**
 	 * @param avatar
-	 * @return formatted incomes and outcomes distinct
+	 * @return formatovane prijmy a vydaje a jejich rozdil
 	 */
 	public static String getFormattedDistinct(Avatar avatar) {
 		return AvatarUtils.getFormattedCurrency(AvatarUtils.getDistinct(avatar));

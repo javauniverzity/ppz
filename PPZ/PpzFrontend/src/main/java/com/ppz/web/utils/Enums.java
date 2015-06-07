@@ -5,6 +5,11 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
+/**
+ * Vycet hodnot sporiciho uctu a investicniho fondu pro hru
+ * @author David
+ *
+ */
 @Component
 public class Enums {
 	
@@ -23,7 +28,12 @@ public class Enums {
 			 this.code = code;
 		 }
 
-		 public int getCode() {
+		 /**
+ 		 * Dej kod hry
+ 		 *
+ 		 * @return kod hry
+ 		 */
+ 		public int getCode() {
 		   return code;
 		 }
 		 public String getName() {

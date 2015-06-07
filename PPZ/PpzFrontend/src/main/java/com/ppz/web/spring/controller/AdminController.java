@@ -28,30 +28,47 @@ import com.ppz.web.interfaces.service.UserService;
 import com.ppz.web.utils.UserUtils;
 
 /**
- * Vytvoreni uvodnich objektu do DB
- * 
- * @author Pavel Lukes
- * 
+ * Vytvoreni uvodnich objektu do DB.
+ *
+ * @author David
  */
 
 @Controller
 public class AdminController {
 
+	/** Konstanta ACTION. */
 	public static final String ACTION = "admin";
+	
+	/** Konstanta ACTION_ADD_ADVISOR. */
 	public static final String ACTION_ADD_ADVISOR = "adminAddAdvisor";
+	
+	/** Konstanta REDIRECT. */
 	public static final String REDIRECT = "redirect:" + ACTION + ".html";
 
+	/** The user service. */
 	@Autowired
 	UserService userService;
 
+	/** The ppz service. */
 	@Autowired
 	PpzService ppzService;
 	
+	/** The game code component. */
 	@Autowired
 	GameCodeComponent gameCodeComponent;
 
+	/** The logger. */
 	Logger logger = Logger.getLogger(AdminController.class);
 
+	/**
+	 * Nastaveni komunikace kontroleru pomoci metody get
+	 *
+	 * @param request the request
+	 * @param res the res
+	 * @param model the model
+	 * @return the string
+	 * @throws Exception the exception
+	 */
 	@RequestMapping(value = AdminController.ACTION, method = RequestMethod.GET)
 	public String get(HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
 
@@ -86,7 +103,7 @@ public class AdminController {
 			po.setStopper(Boolean.FALSE);
 			ppzService.createPossibleEvent(po);
 			
-//			// create some event probabilities
+//			// vytvor vybranou pravdepodobnostni udalost
 //			
 			po = ppzService.getPossibleEvent(po.getPossibleEventId());
 			
@@ -100,7 +117,7 @@ public class AdminController {
 			ep = createEventProbability(3, null, null, null, Double.valueOf(0.2), po);
 			ppzService.createEventProbability(ep);
 			
-			// create event impacts
+			// vytvoreni dopadu udalossti
 			
 			po = ppzService.getPossibleEvent(po.getPossibleEventId());
 			
@@ -121,6 +138,13 @@ public class AdminController {
 		return ACTION;
 	}
 
+	/**
+	 * Nastaveni komunikace kontroleru pomoci metody Post.
+	 *
+	 * @param username uzivatelske jmeno
+	 * @param advisorId Id poradce
+	 * @return retezec
+	 */
 	@RequestMapping(value = AdminController.ACTION, method = RequestMethod.POST)
 	public String post(@RequestParam("username") String username, @RequestParam("advisorId")String advisorId) {
 		List<Advisor> advisors = ppzService.getAdvisorList();
@@ -149,6 +173,12 @@ public class AdminController {
 
 	}
 	
+	/**
+	 * Pridani poradce pomoci metody post
+	 *
+	 * @param name jmeno
+	 * @return the string
+	 */
 	@RequestMapping(value = AdminController.ACTION_ADD_ADVISOR, method = RequestMethod.POST)
 	public String postAddAdvisor(@RequestParam("name") String name) {
 		Advisor advisor = new Advisor();
@@ -158,6 +188,17 @@ public class AdminController {
 		return REDIRECT;
 	}
 	
+	/**
+	 * Vytvoreni pravdepodobnosti udalosti.
+	 *
+	 * @param ageFrom od roku
+	 * @param ageTo do roku
+	 * @param valueFrom hodnota od
+	 * @param valueTo hodnota do
+	 * @param probability pravdepobnost
+	 * @param po pravdepodobna udalost
+	 * @return pravdepobona udalot
+	 */
 	private EventProbability createEventProbability(Integer ageFrom, Integer ageTo, BigDecimal valueFrom, BigDecimal valueTo, Double probability, PossibleEvent po) {
 		EventProbability ep = new EventProbability();
 		ep.setAgeFrom(ageFrom);
@@ -169,6 +210,15 @@ public class AdminController {
 		return ep;
 	}
 
+	/**
+	 * Vytvoreni dopadu udalosti
+	 *
+	 * @param impactType druh dopadu
+	 * @param impactSize velikost dopadu
+	 * @param insuredImpact pojisteny dopad
+	 * @param po pravdepodobna udalost
+	 * @return dopad udalosti
+	 */
 	private EventImpact createEventImpact(Integer impactType, Long impactSize, Boolean insuredImpact, PossibleEvent po) {
 		EventImpact ei = new EventImpact();
 		ei.setType(impactType);
