@@ -17,56 +17,64 @@ import com.ppz.web.interfaces.service.UserService;
 /**
  * Prihlaseni pomoci kodu.
  *
- * @author David
+ * @author Honza
  */
 
 @Controller
 @RequestMapping(SelectAvatarController.ACTION)
 public class SelectAvatarController {
-	
+
 	/** Konstanta ACTION. */
 	public static final String ACTION = "selectavatar";
-	
+
 	/** Konstanta REDIRECT. */
 	public static final String REDIRECT = "redirect:" + ACTION + ".html";
-	
+
 	/** The user service. */
 	@Autowired
 	UserService userService;
-	
+
 	/** The ppz service. */
 	@Autowired
 	PpzService ppzService;
-	
+
 	/** The logger. */
 	Logger logger = Logger.getLogger(SelectAvatarController.class);
 
 	/**
 	 * Nastaveni metody get.
 	 *
-	 * @param request zadost
-	 * @param res odpoved servletu
-	 * @param model model
+	 * @param request
+	 *            zadost
+	 * @param res
+	 *            odpoved servletu
+	 * @param model
+	 *            model
 	 * @return the string
-	 * @throws Exception vyjimka
+	 * @throws Exception
+	 *             vyjimka
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public String get(HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
+	public String get(final HttpServletRequest request, final HttpServletResponse res, final ModelMap model) throws Exception {
 		return ACTION;
 	}
 
 	/**
 	 * Nastaveni metody Post.
 	 *
-	 * @param request zadost
-	 * @param res odpoved servletu
-	 * @param model model
-	 * @param avatar avatar
+	 * @param request
+	 *            zadost
+	 * @param res
+	 *            odpoved servletu
+	 * @param model
+	 *            model
+	 * @param avatar
+	 *            avatar
 	 * @return the string
-	 * @throws Exception vyjimka
+	 * @throws Exception
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(HttpServletRequest request, HttpServletResponse res, ModelMap model, @RequestParam String avatar) throws Exception {
+	public String post(final HttpServletRequest request, final HttpServletResponse res, final ModelMap model, @RequestParam final String avatar) throws Exception {
 		return DemoController.REDIRECT;
 	}
 

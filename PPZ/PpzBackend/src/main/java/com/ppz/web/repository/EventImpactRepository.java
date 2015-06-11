@@ -7,12 +7,13 @@ import com.ppz.web.entity.PossibleEvent;
 
 /**
  * Interface repository specifickych metod pro entitu EventImpact
- * @author David
+ * 
+ * @author Honza
  */
 public interface EventImpactRepository extends GenericRepository<EventImpact> {
 
 	// nejsou zadne specialni metody v EventImpact
-	
+
 	List<EventImpact> getEventImpactListByPossibleEvent(PossibleEvent possibleEvent);
 
 }

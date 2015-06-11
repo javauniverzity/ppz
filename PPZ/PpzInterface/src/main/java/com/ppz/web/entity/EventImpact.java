@@ -10,12 +10,17 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity for EventImpact data
+ * 
+ * @author Honza
  */
 
 @Entity
 @Table(name = "EVENT_IMPACT")
 public class EventImpact {
 
+	/**
+	 * The Constants
+	 */
 	public static final Integer EVENT_IMPACT_TYPE_NONE = 1;
 	public static final Integer EVENT_IMPACT_TYPE_CHANGE_MONEY = 2;
 	public static final Integer EVENT_IMPACT_TYPE_CHANGE_INCOME = 3;
@@ -58,7 +63,7 @@ public class EventImpact {
 		return eventImpactId;
 	}
 
-	public void setEventImpactId(Long eventImpactId) {
+	public void setEventImpactId(final Long eventImpactId) {
 		this.eventImpactId = eventImpactId;
 	}
 
@@ -66,7 +71,7 @@ public class EventImpact {
 		return type;
 	}
 
-	public void setType(Integer type) {
+	public void setType(final Integer type) {
 		this.type = type;
 	}
 
@@ -74,7 +79,7 @@ public class EventImpact {
 		return impactSize;
 	}
 
-	public void setImpactSize(Long impactSize) {
+	public void setImpactSize(final Long impactSize) {
 		this.impactSize = impactSize;
 	}
 
@@ -82,7 +87,7 @@ public class EventImpact {
 		return insuredImpact;
 	}
 
-	public void setInsuredImpact(Boolean insuredImpact) {
+	public void setInsuredImpact(final Boolean insuredImpact) {
 		this.insuredImpact = insuredImpact;
 	}
 
@@ -90,15 +95,13 @@ public class EventImpact {
 		return possibleEvent;
 	}
 
-	public void setPossibleEvent(PossibleEvent possibleEvent) {
+	public void setPossibleEvent(final PossibleEvent possibleEvent) {
 		this.possibleEvent = possibleEvent;
 	}
 
 	@Override
 	public String toString() {
-		return "EventImpact [eventImpactId=" + eventImpactId + ", type=" + type
-				+ ", impactSize=" + impactSize + ", insuredImpact="
-				+ insuredImpact + ", possibleEvent=" + possibleEvent + "]";
+		return "EventImpact [eventImpactId=" + eventImpactId + ", type=" + type + ", impactSize=" + impactSize + ", insuredImpact=" + insuredImpact + ", possibleEvent=" + possibleEvent + "]";
 	}
 
 }

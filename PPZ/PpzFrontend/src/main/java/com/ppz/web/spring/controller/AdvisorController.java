@@ -16,7 +16,7 @@ import com.ppz.web.interfaces.service.UserService;
 /**
  * Stranka pro poradce, vytvareni kodu her.
  *
- * @author David
+ * @author Honza
  */
 
 @Controller
@@ -25,7 +25,7 @@ public class AdvisorController {
 
 	/** Konstanta ACTION. */
 	public static final String ACTION = "advisor";
-	
+
 	/** Konstanta REDIRECT. */
 	public static final String REDIRECT = "redirect:" + ACTION + ".html";
 
@@ -43,16 +43,21 @@ public class AdvisorController {
 	/**
 	 * Nastaveni metody Get.
 	 *
-	 * @param request zadost
-	 * @param res reakce servletu
-	 * @param model model
+	 * @param request
+	 *            zadost
+	 * @param res
+	 *            reakce servletu
+	 * @param model
+	 *            model
 	 * @return the string
-	 * @throws Exception vyjimka
+	 * @throws Exception
+	 *             vyjimka
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public String get(HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
-		// TODO stranka by mela mit moznost vytvaret herni kody, ke kazdemu se pak jeste vytvori uzivatel, ktery se kodem prihlasi
-		
+	public String get(final HttpServletRequest request, final HttpServletResponse res, final ModelMap model) throws Exception {
+		// TODO stranka by mela mit moznost vytvaret herni kody, ke kazdemu se
+		// pak jeste vytvori uzivatel, ktery se kodem prihlasi
+
 		return ACTION;
 	}
 

@@ -30,6 +30,7 @@
 
 
 	<bean id="api" class="com.ppz.api.rest.spring.service.ApiImpl" />
+	<bean id="apiHonza" class="com.ppz.api.rest.spring.service.ApiHonzaImpl" />
 
 	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider">
 		<!-- <property name="mapper" ref="jacksonMapper" /> -->
@@ -52,6 +53,7 @@
 		</jaxrs:extensionMappings>
 		<jaxrs:serviceBeans>
 			<ref bean="api" />
+			<ref bean="apiHonza" />
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<ref bean="jsonProvider" />

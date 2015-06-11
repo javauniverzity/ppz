@@ -28,132 +28,147 @@ import com.ppz.web.utils.WebUtils;
 /**
  * Stranka PPZ.
  *
- * @author Pavel Lukes
+ * @author Honza
  */
 
 @Controller
 public class BankController {
-	
+
 	/** Konstanta ACTION. */
 	public static final String ACTION = "bank";
-	
+
 	/** Konstanta ACTION_ADD. */
 	public static final String ACTION_ADD = "bankAdd";
-	
+
 	/** Konstanta ACTION_REMOVE. */
 	public static final String ACTION_REMOVE = "bankRemove";
-	
+
 	/** Konstanta REDIRECT. */
 	public static final String REDIRECT = "redirect:" + ACTION + ".html";
-	
+
 	/** The user service. */
 	@Autowired
 	UserService userService;
-	
+
 	/** The ppz service. */
 	@Autowired
 	PpzService ppzService;
-	
 
 	/** The logger. */
 	Logger logger = Logger.getLogger(BankController.class);
-	
+
 	/**
 	 * Nastaveni metody Get.
 	 *
-	 * @param request zadost
-	 * @param res odpoved servletu
-	 * @param model model
+	 * @param request
+	 *            zadost
+	 * @param res
+	 *            odpoved servletu
+	 * @param model
+	 *            model
 	 * @return the string
-	 * @throws Exception vyjimka
+	 * @throws Exception
+	 *             vyjimka
 	 */
 	@RequestMapping(value = ACTION, method = RequestMethod.GET)
-	public String get(HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
-		GameCode gameCode = WebUtils.getGameCode(request);
-		
+	public String get(final HttpServletRequest request, final HttpServletResponse res, final ModelMap model) throws Exception {
+		final GameCode gameCode = WebUtils.getGameCode(request);
+
 		if (gameCode != null) {
 
-			Game game = gameCode.getGame();
-			List<FinancialAssets> financialAssets = ppzService.getFinancialAssetsByAvatar(game.getAvatar());
+			final Game game = gameCode.getGame();
+			final List<FinancialAssets> financialAssets = ppzService.getFinancialAssetsByAvatar(game.getAvatar());
 			model.addAttribute("products", financialAssets);
 
 		}
-		
-		
+
 		return ACTION;
 	}
 
 	/**
 	 * Zobrazeni stranky pro pridani produktu.
 	 *
-	 * @param request zadost
-	 * @param res odpoved servletu
-	 * @param model model
+	 * @param request
+	 *            zadost
+	 * @param res
+	 *            odpoved servletu
+	 * @param model
+	 *            model
 	 * @return the adds the
-	 * @throws Exception vyjimka
+	 * @throws Exception
+	 *             vyjimka
 	 */
 	@RequestMapping(value = ACTION_ADD, method = RequestMethod.GET)
-	public String getAdd(HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
-		GameCode gameCode = WebUtils.getGameCode(request);
-		
+	public String getAdd(final HttpServletRequest request, final HttpServletResponse res, final ModelMap model) throws Exception {
+		final GameCode gameCode = WebUtils.getGameCode(request);
+
 		if (gameCode != null) {
 
-			Game game = gameCode.getGame();
-			List<FinancialAssets> financialAssets = ppzService.getFinancialAssetsByAvatar(game.getAvatar());
+			final Game game = gameCode.getGame();
+			final List<FinancialAssets> financialAssets = ppzService.getFinancialAssetsByAvatar(game.getAvatar());
 			model.addAttribute("products", financialAssets);
 
 		}
-		
+
 		model.addAttribute("product", new FinancialAssets());
-		
-		
+
 		return ACTION;
 	}
-	
+
 	/**
 	 * Odstraneni
 	 *
-	 * @param id identifikacni cislo
-	 * @param request zadost
-	 * @param res the res
-	 * @param model model
+	 * @param id
+	 *            identifikacni cislo
+	 * @param request
+	 *            zadost
+	 * @param res
+	 *            the res
+	 * @param model
+	 *            model
 	 * @return the removes the
-	 * @throws Exception vyjimky
+	 * @throws Exception
+	 *             vyjimky
 	 */
 	@RequestMapping(value = ACTION_REMOVE, method = RequestMethod.GET)
-	public String getRemove(@RequestParam("id") Long id, HttpServletRequest request, HttpServletResponse res, ModelMap model) throws Exception {
-		GameCode gameCode = WebUtils.getGameCode(request);
-		
+	public String getRemove(@RequestParam("id") final Long id, final HttpServletRequest request, final HttpServletResponse res, final ModelMap model) throws Exception {
+		final GameCode gameCode = WebUtils.getGameCode(request);
+
 		if (gameCode != null) {
 
-			Game game = gameCode.getGame();
-			FinancialAssets financialAssets = ppzService.getFinancialAssets(id);
+			final Game game = gameCode.getGame();
+			final FinancialAssets financialAssets = ppzService.getFinancialAssets(id);
 			// zjistime zda maze produkt ktery se vztahuje k jeho avataru
 			if (game.getAvatar().getAvatarId().equals(financialAssets.getAvatar().getAvatarId())) {
 				ppzService.deleteFinancialAssets(financialAssets);
 			}
 
 		}
-		
+
 		return REDIRECT;
 	}
-	
+
 	/**
 	 * pridani produktu.
 	 *
-	 * @param product the product
-	 * @param result the result
-	 * @param model the model
-	 * @param request the request
+	 * @param product
+	 *            the product
+	 * @param result
+	 *            the result
+	 * @param model
+	 *            the model
+	 * @param request
+	 *            the request
 	 * @return the string
-	 * @throws Exception the exception
+	 * @throws Exception
+	 *             the exception
 	 */
 	@RequestMapping(value = ACTION_ADD, method = RequestMethod.POST)
-	public String postAdd(@ModelAttribute(value="product") FinancialAssets product, BindingResult result, ModelMap model, HttpServletRequest request) throws Exception {
-		GameCode gameCode = WebUtils.getGameCode(request);
-		
+	public String postAdd(@ModelAttribute(value = "product") final FinancialAssets product, final BindingResult result, final ModelMap model, final HttpServletRequest request) throws Exception {
+		final GameCode gameCode = WebUtils.getGameCode(request);
+
 		if (gameCode != null && gameCode.getGame() != null) {
-			Avatar avatar = gameCode.getGame().getAvatar();
+			final Avatar avatar = gameCode.getGame().getAvatar();
 			product.setAvatar(avatar);
 			product.setType(Enums.FinancialAssetsEnum.INVESTMENT_EQUITY_FUND.getCode());
 		}
@@ -162,17 +177,19 @@ public class BankController {
 
 		return REDIRECT;
 	}
-	
+
 	/**
 	 * Editace volani z db pomoci Ajaxu
 	 *
-	 * @param id the id
-	 * @param value the value
+	 * @param id
+	 *            the id
+	 * @param value
+	 *            the value
 	 * @return the string
 	 */
-	public String edit(String id, String value) {
-		BigDecimal bd = new BigDecimal(value);
-		FinancialAssets fa = ppzService.getFinancialAssets(Long.parseLong(id));
+	public String edit(final String id, final String value) {
+		final BigDecimal bd = new BigDecimal(value);
+		final FinancialAssets fa = ppzService.getFinancialAssets(Long.parseLong(id));
 		fa.setValue(bd);
 		ppzService.updateFinancialAssets(fa);
 		return id;

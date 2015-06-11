@@ -11,24 +11,24 @@ import com.ppz.web.entity.PossibleEvent;
 
 /**
  * Implementace repository EventImpact
- * @author David
- *
+ * 
+ * @author Honza
  */
 @Repository(value = "eventImpactRepository")
 public class EventImpactRepositoryImpl extends AbstractRepository<EventImpact> implements EventImpactRepository {
 
 	/**
-	 *Vezme list udalosti a podle pravdepodobnosti urcitou vybere 
+	 * Vezme list udalosti a podle pravdepodobnosti urcitou vybere
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<EventImpact> getEventImpactListByPossibleEvent(PossibleEvent possibleEvent) {
-		Map<String, Object> filter = new HashMap<String, Object>();
+	public List<EventImpact> getEventImpactListByPossibleEvent(final PossibleEvent possibleEvent) {
+		final Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("possibleEvent", possibleEvent);
 		@SuppressWarnings("rawtypes")
-		List results = loadByFilter(filter, EventImpact.class);
+		final List results = loadByFilter(filter, EventImpact.class);
 		if (results.size() != 0) {
-			return (List<EventImpact>) results;
+			return results;
 		} else {
 			return null;
 		}

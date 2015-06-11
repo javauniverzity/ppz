@@ -13,6 +13,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity for user Avatar data
+ * 
+ * @author Honza
  */
 
 @Entity
@@ -139,7 +141,7 @@ public class Avatar {
 		return type;
 	}
 
-	public void setType(Integer type) {
+	public void setType(final Integer type) {
 		this.type = type;
 	}
 
@@ -147,7 +149,7 @@ public class Avatar {
 		return avatarId;
 	}
 
-	public void setAvatarId(Long avatarId) {
+	public void setAvatarId(final Long avatarId) {
 		this.avatarId = avatarId;
 	}
 
@@ -155,7 +157,7 @@ public class Avatar {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
@@ -163,7 +165,7 @@ public class Avatar {
 		return age;
 	}
 
-	public void setAge(Long age) {
+	public void setAge(final Long age) {
 		this.age = age;
 	}
 
@@ -171,7 +173,7 @@ public class Avatar {
 		return income;
 	}
 
-	public void setIncome(BigDecimal income) {
+	public void setIncome(final BigDecimal income) {
 		this.income = income;
 	}
 
@@ -179,7 +181,7 @@ public class Avatar {
 		return alive;
 	}
 
-	public void setAlive(Boolean alive) {
+	public void setAlive(final Boolean alive) {
 		this.alive = alive;
 	}
 
@@ -187,7 +189,7 @@ public class Avatar {
 		return otherIncome;
 	}
 
-	public void setOtherIncome(BigDecimal otherIncome) {
+	public void setOtherIncome(final BigDecimal otherIncome) {
 		this.otherIncome = otherIncome;
 	}
 
@@ -195,7 +197,7 @@ public class Avatar {
 		return leaseCosts;
 	}
 
-	public void setLeaseCosts(BigDecimal leaseCosts) {
+	public void setLeaseCosts(final BigDecimal leaseCosts) {
 		this.leaseCosts = leaseCosts;
 	}
 
@@ -203,7 +205,7 @@ public class Avatar {
 		return energyCosts;
 	}
 
-	public void setEnergyCosts(BigDecimal energyCosts) {
+	public void setEnergyCosts(final BigDecimal energyCosts) {
 		this.energyCosts = energyCosts;
 	}
 
@@ -211,7 +213,7 @@ public class Avatar {
 		return foodCosts;
 	}
 
-	public void setFoodCosts(BigDecimal foodCosts) {
+	public void setFoodCosts(final BigDecimal foodCosts) {
 		this.foodCosts = foodCosts;
 	}
 
@@ -219,7 +221,7 @@ public class Avatar {
 		return freeTimeCosts;
 	}
 
-	public void setFreeTimeCosts(BigDecimal freeTimeCosts) {
+	public void setFreeTimeCosts(final BigDecimal freeTimeCosts) {
 		this.freeTimeCosts = freeTimeCosts;
 	}
 
@@ -227,7 +229,7 @@ public class Avatar {
 		return trafficCosts;
 	}
 
-	public void setTrafficCosts(BigDecimal trafficCosts) {
+	public void setTrafficCosts(final BigDecimal trafficCosts) {
 		this.trafficCosts = trafficCosts;
 	}
 
@@ -235,7 +237,7 @@ public class Avatar {
 		return clothesCosts;
 	}
 
-	public void setClothesCosts(BigDecimal clothesCosts) {
+	public void setClothesCosts(final BigDecimal clothesCosts) {
 		this.clothesCosts = clothesCosts;
 	}
 
@@ -243,7 +245,7 @@ public class Avatar {
 		return vacationCosts;
 	}
 
-	public void setVacationCosts(BigDecimal vacationCosts) {
+	public void setVacationCosts(final BigDecimal vacationCosts) {
 		this.vacationCosts = vacationCosts;
 	}
 
@@ -251,7 +253,7 @@ public class Avatar {
 		return phoneCosts;
 	}
 
-	public void setPhoneCosts(BigDecimal phoneCosts) {
+	public void setPhoneCosts(final BigDecimal phoneCosts) {
 		this.phoneCosts = phoneCosts;
 	}
 
@@ -259,7 +261,7 @@ public class Avatar {
 		return smokeCosts;
 	}
 
-	public void setSmokeCosts(BigDecimal smokeCosts) {
+	public void setSmokeCosts(final BigDecimal smokeCosts) {
 		this.smokeCosts = smokeCosts;
 	}
 
@@ -267,7 +269,7 @@ public class Avatar {
 		return otherCosts;
 	}
 
-	public void setOtherCosts(BigDecimal therCosts) {
+	public void setOtherCosts(final BigDecimal therCosts) {
 		this.otherCosts = therCosts;
 	}
 
@@ -275,7 +277,7 @@ public class Avatar {
 		return template;
 	}
 
-	public void setTemplate(Boolean template) {
+	public void setTemplate(final Boolean template) {
 		this.template = template;
 	}
 
@@ -283,7 +285,7 @@ public class Avatar {
 		return financialAssetsList;
 	}
 
-	public void setFinancialAssetsList(List<FinancialAssets> financialAssetsList) {
+	public void setFinancialAssetsList(final List<FinancialAssets> financialAssetsList) {
 		this.financialAssetsList = financialAssetsList;
 	}
 
@@ -291,8 +293,7 @@ public class Avatar {
 		return nonFinancialAssetsList;
 	}
 
-	public void setNonFinancialAssetsList(
-			List<NonFinancialAssets> nonFinancialAssetsList) {
+	public void setNonFinancialAssetsList(final List<NonFinancialAssets> nonFinancialAssetsList) {
 		this.nonFinancialAssetsList = nonFinancialAssetsList;
 	}
 
@@ -300,22 +301,14 @@ public class Avatar {
 		return linkedPersonList;
 	}
 
-	public void setLinkedPersonList(List<LinkedPerson> linkedPersonList) {
+	public void setLinkedPersonList(final List<LinkedPerson> linkedPersonList) {
 		this.linkedPersonList = linkedPersonList;
 	}
 
 	@Override
 	public String toString() {
-		return "Avatar [avatarId=" + avatarId + ", name=" + name + ", age="
-				+ age + ", income=" + income + ", otherIncome=" + otherIncome
-				+ ", leaseCosts=" + leaseCosts + ", energyCosts=" + energyCosts
-				+ ", foodCosts=" + foodCosts + ", freeTimeCosts="
-				+ freeTimeCosts + ", trafficCosts=" + trafficCosts
-				+ ", clothesCosts=" + clothesCosts + ", vacationCosts="
-				+ vacationCosts + ", phoneCosts=" + phoneCosts
-				+ ", smokeCosts=" + smokeCosts + ", otherCosts=" + otherCosts
-				+ ", alive=" + alive + ", template=" + template + ", type="
-				+ type + "]";
+		return "Avatar [avatarId=" + avatarId + ", name=" + name + ", age=" + age + ", income=" + income + ", otherIncome=" + otherIncome + ", leaseCosts=" + leaseCosts + ", energyCosts=" + energyCosts + ", foodCosts=" + foodCosts + ", freeTimeCosts=" + freeTimeCosts + ", trafficCosts=" + trafficCosts + ", clothesCosts=" + clothesCosts + ", vacationCosts=" + vacationCosts + ", phoneCosts="
+				+ phoneCosts + ", smokeCosts=" + smokeCosts + ", otherCosts=" + otherCosts + ", alive=" + alive + ", template=" + template + ", type=" + type + "]";
 	}
 
 }

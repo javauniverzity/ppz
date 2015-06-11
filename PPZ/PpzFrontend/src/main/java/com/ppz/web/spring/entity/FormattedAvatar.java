@@ -5,16 +5,16 @@ import com.ppz.web.utils.AvatarUtils;
 
 /**
  * Nastavi parametry avatara
- * @author David
- *
+ * 
+ * @author Honza
  */
 public class FormattedAvatar {
 
 	Avatar avatar;
 	String incomes = "";
 	String outcomes = "";
-	
-	public FormattedAvatar(Avatar avatar) {
+
+	public FormattedAvatar(final Avatar avatar) {
 		this.avatar = avatar;
 		this.incomes = AvatarUtils.getFormattedIncomes(avatar);
 		this.outcomes = AvatarUtils.getFormattedOutcomes(avatar);
@@ -31,7 +31,7 @@ public class FormattedAvatar {
 		}
 		return AvatarUtils.getFormattedIncomes(avatar);
 	}
-	
+
 	/**
 	 * Dej vydaje
 	 * 
@@ -46,6 +46,7 @@ public class FormattedAvatar {
 
 	/**
 	 * Dej rozdil mezi prijmy a vydaji
+	 * 
 	 * @return rozdil
 	 */
 	public String getDistinct() {

@@ -9,6 +9,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity for Financial Advisor data
+ * 
+ * @author Honza
  */
 
 @Entity
@@ -62,7 +64,7 @@ public class Advisor {
 		return advisorId;
 	}
 
-	public void setAdvisorId(Long advisorId) {
+	public void setAdvisorId(final Long advisorId) {
 		this.advisorId = advisorId;
 	}
 
@@ -70,7 +72,7 @@ public class Advisor {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
@@ -78,7 +80,7 @@ public class Advisor {
 		return surname;
 	}
 
-	public void setSurname(String surname) {
+	public void setSurname(final String surname) {
 		this.surname = surname;
 	}
 
@@ -86,7 +88,7 @@ public class Advisor {
 		return street;
 	}
 
-	public void setStreet(String street) {
+	public void setStreet(final String street) {
 		this.street = street;
 	}
 
@@ -94,7 +96,7 @@ public class Advisor {
 		return city;
 	}
 
-	public void setCity(String city) {
+	public void setCity(final String city) {
 		this.city = city;
 	}
 
@@ -102,7 +104,7 @@ public class Advisor {
 		return post;
 	}
 
-	public void setPost(String post) {
+	public void setPost(final String post) {
 		this.post = post;
 	}
 
@@ -110,7 +112,7 @@ public class Advisor {
 		return streetNo;
 	}
 
-	public void setStreetNo(String streetNo) {
+	public void setStreetNo(final String streetNo) {
 		this.streetNo = streetNo;
 	}
 
@@ -118,16 +120,13 @@ public class Advisor {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(final String email) {
 		this.email = email;
 	}
 
 	@Override
 	public String toString() {
-		return "Advisor [advisorId=" + advisorId + ", name=" + name
-				+ ", surname=" + surname + ", street=" + street + ", city="
-				+ city + ", post=" + post + ", streetNo=" + streetNo
-				+ ", email=" + email + "]";
+		return "Advisor [advisorId=" + advisorId + ", name=" + name + ", surname=" + surname + ", street=" + street + ", city=" + city + ", post=" + post + ", streetNo=" + streetNo + ", email=" + email + "]";
 	}
 
 }

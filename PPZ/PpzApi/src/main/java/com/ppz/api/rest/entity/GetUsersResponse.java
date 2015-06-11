@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Komponenta, ktera nastavuje chovani entity uzivatel
+ * 
  * @author David
  *
  */
@@ -13,6 +14,7 @@ public class GetUsersResponse {
 
 	/**
 	 * Dej uzivatele
+	 * 
 	 * @return
 	 */
 	public List<String> getUsers() {
@@ -21,12 +23,11 @@ public class GetUsersResponse {
 
 	/**
 	 * Nastav uzivatele
+	 * 
 	 * @param users
 	 */
-	public void setUsers(List<String> users) {
+	public void setUsers(final List<String> users) {
 		this.users = users;
 	}
-	
-	
-	
+
 }

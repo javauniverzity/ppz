@@ -15,6 +15,8 @@ import com.ppz.web.utils.Exclude;
 
 /**
  * Entity for Financial assets data
+ * 
+ * @author Honza
  */
 
 @Entity
@@ -104,7 +106,7 @@ public class FinancialAssets {
 		return avatar;
 	}
 
-	public void setAvatar(Avatar avatar) {
+	public void setAvatar(final Avatar avatar) {
 		this.avatar = avatar;
 	}
 
@@ -112,7 +114,7 @@ public class FinancialAssets {
 		return financialAssetsId;
 	}
 
-	public void setFinancialAssetsId(Long financialAssetsId) {
+	public void setFinancialAssetsId(final Long financialAssetsId) {
 		this.financialAssetsId = financialAssetsId;
 	}
 
@@ -120,7 +122,7 @@ public class FinancialAssets {
 		return type;
 	}
 
-	public void setType(Integer type) {
+	public void setType(final Integer type) {
 		this.type = type;
 	}
 
@@ -128,7 +130,7 @@ public class FinancialAssets {
 		return value;
 	}
 
-	public void setValue(BigDecimal value) {
+	public void setValue(final BigDecimal value) {
 		this.value = value;
 	}
 
@@ -136,7 +138,7 @@ public class FinancialAssets {
 		return monthlyOutcome;
 	}
 
-	public void setMonthlyOutcome(BigDecimal monthlyOutcome) {
+	public void setMonthlyOutcome(final BigDecimal monthlyOutcome) {
 		this.monthlyOutcome = monthlyOutcome;
 	}
 
@@ -144,7 +146,7 @@ public class FinancialAssets {
 		return lastYearStoredAmount;
 	}
 
-	public void setLastYearStoredAmount(BigDecimal lastYearStoredAmount) {
+	public void setLastYearStoredAmount(final BigDecimal lastYearStoredAmount) {
 		this.lastYearStoredAmount = lastYearStoredAmount;
 	}
 
@@ -152,7 +154,7 @@ public class FinancialAssets {
 		return sharesCount;
 	}
 
-	public void setSharesCount(Integer sharesCount) {
+	public void setSharesCount(final Integer sharesCount) {
 		this.sharesCount = sharesCount;
 	}
 
@@ -160,7 +162,7 @@ public class FinancialAssets {
 		return bondsCount;
 	}
 
-	public void setBondsCount(Integer bondsCount) {
+	public void setBondsCount(final Integer bondsCount) {
 		this.bondsCount = bondsCount;
 	}
 
@@ -168,7 +170,7 @@ public class FinancialAssets {
 		return monetaryFundsCount;
 	}
 
-	public void setMonetaryFundsCount(Integer monetaryFundsCount) {
+	public void setMonetaryFundsCount(final Integer monetaryFundsCount) {
 		this.monetaryFundsCount = monetaryFundsCount;
 	}
 
@@ -176,7 +178,7 @@ public class FinancialAssets {
 		return insuredSum;
 	}
 
-	public void setInsuredSum(BigDecimal insuredSum) {
+	public void setInsuredSum(final BigDecimal insuredSum) {
 		this.insuredSum = insuredSum;
 	}
 
@@ -184,7 +186,7 @@ public class FinancialAssets {
 		return endOfStage;
 	}
 
-	public void setEndOfStage(Date endOfStage) {
+	public void setEndOfStage(final Date endOfStage) {
 		this.endOfStage = endOfStage;
 	}
 
@@ -192,7 +194,7 @@ public class FinancialAssets {
 		return interest;
 	}
 
-	public void setInterest(BigDecimal interest) {
+	public void setInterest(final BigDecimal interest) {
 		this.interest = interest;
 	}
 
@@ -200,7 +202,7 @@ public class FinancialAssets {
 		return endTime;
 	}
 
-	public void setEndTime(Date endTime) {
+	public void setEndTime(final Date endTime) {
 		this.endTime = endTime;
 	}
 
@@ -208,7 +210,7 @@ public class FinancialAssets {
 		return targetAmount;
 	}
 
-	public void setTargetAmount(BigDecimal targetAmount) {
+	public void setTargetAmount(final BigDecimal targetAmount) {
 		this.targetAmount = targetAmount;
 	}
 
@@ -216,21 +218,14 @@ public class FinancialAssets {
 		return roundNo;
 	}
 
-	public void setRoundNo(Long roundNo) {
+	public void setRoundNo(final Long roundNo) {
 		this.roundNo = roundNo;
 	}
 
 	@Override
 	public String toString() {
-		return "FinancialAssets [financialAssetsId=" + financialAssetsId
-				+ ", type=" + type + ", value=" + value + ", monthlyOutcome="
-				+ monthlyOutcome + ", lastYearStoredAmount="
-				+ lastYearStoredAmount + ", sharesCount=" + sharesCount
-				+ ", bondsCount=" + bondsCount + ", monetaryFundsCount="
-				+ monetaryFundsCount + ", insuredSum=" + insuredSum
-				+ ", endOfStage=" + endOfStage + ", interest=" + interest
-				+ ", endTime=" + endTime + ", targetAmount=" + targetAmount
-				+ ", roundNo=" + roundNo + ", avatar=" + avatar + "]";
+		return "FinancialAssets [financialAssetsId=" + financialAssetsId + ", type=" + type + ", value=" + value + ", monthlyOutcome=" + monthlyOutcome + ", lastYearStoredAmount=" + lastYearStoredAmount + ", sharesCount=" + sharesCount + ", bondsCount=" + bondsCount + ", monetaryFundsCount=" + monetaryFundsCount + ", insuredSum=" + insuredSum + ", endOfStage=" + endOfStage + ", interest="
+				+ interest + ", endTime=" + endTime + ", targetAmount=" + targetAmount + ", roundNo=" + roundNo + ", avatar=" + avatar + "]";
 	}
 
 }

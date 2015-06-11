@@ -12,6 +12,7 @@ import com.ppz.api.rest.entity.GetUsersResponse;
 
 /**
  * Obecne nastaveni rozhrani
+ * 
  * @author David
  *
  */
@@ -19,10 +20,9 @@ import com.ppz.api.rest.entity.GetUsersResponse;
 @Produces(MediaType.APPLICATION_JSON)
 @CrossOriginResourceSharing(allowAllOrigins = true)
 public interface Api {
-	
+
 	@POST
 	@Path("/getUsers/")
 	public GetUsersResponse getUsers();
-
 
 }

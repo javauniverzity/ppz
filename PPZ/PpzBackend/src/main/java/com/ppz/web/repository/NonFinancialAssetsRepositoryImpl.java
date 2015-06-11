@@ -13,8 +13,8 @@ import com.ppz.web.entity.NonFinancialAssets;
 
 /**
  * Implementace repository NonFinancialAssets (nefinanci aktiva)
- * @author pc
- *
+ * 
+ * @author Honza
  */
 @Repository(value = "nonFinancialAssetsRepository")
 public class NonFinancialAssetsRepositoryImpl extends AbstractRepository<NonFinancialAssets> implements NonFinancialAssetsRepository {
@@ -23,13 +23,13 @@ public class NonFinancialAssetsRepositoryImpl extends AbstractRepository<NonFina
 	 * Dej seznam vsech nefinancich aktiv podle avataru
 	 */
 	@Override
-	public List<NonFinancialAssets> getNonFinancialAssetsListByAvatar(Avatar avatar) {
+	public List<NonFinancialAssets> getNonFinancialAssetsListByAvatar(final Avatar avatar) {
 		final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		final CriteriaQuery<NonFinancialAssets> crit = criteriaBuilder.createQuery(NonFinancialAssets.class);
 		final Root<NonFinancialAssets> from = crit.from(NonFinancialAssets.class);
-		crit.select(from).where(criteriaBuilder.equal(from.get("avatar"),avatar));
-		
-		List<NonFinancialAssets> results = entityManager.createQuery(crit).getResultList();
+		crit.select(from).where(criteriaBuilder.equal(from.get("avatar"), avatar));
+
+		final List<NonFinancialAssets> results = entityManager.createQuery(crit).getResultList();
 
 		if (results.size() != 0) {
 			return results;
@@ -37,12 +37,12 @@ public class NonFinancialAssetsRepositoryImpl extends AbstractRepository<NonFina
 			return null;
 		}
 	}
-	
+
 	/**
 	 * Vytvor nove aktivum
 	 */
 	@Override
-	public void createNonFinancialAssets(NonFinancialAssets nonFinancialAssets) {
+	public void createNonFinancialAssets(final NonFinancialAssets nonFinancialAssets) {
 		create(nonFinancialAssets);
 	}
 
@@ -50,7 +50,7 @@ public class NonFinancialAssetsRepositoryImpl extends AbstractRepository<NonFina
 	 * Smaz aktivum
 	 */
 	@Override
-	public NonFinancialAssets updateNonFinancialAssets(NonFinancialAssets nonFinancialAssets) {
+	public NonFinancialAssets updateNonFinancialAssets(final NonFinancialAssets nonFinancialAssets) {
 		update(nonFinancialAssets);
 		return nonFinancialAssets;
 	}

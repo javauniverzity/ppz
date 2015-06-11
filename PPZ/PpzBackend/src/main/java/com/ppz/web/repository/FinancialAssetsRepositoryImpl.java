@@ -10,46 +10,49 @@ import com.ppz.web.entity.Avatar;
 import com.ppz.web.entity.FinancialAssets;
 
 /**
- * Implementace repository FinancialAssets
- * @author David
+ * Implementace repository FinancialAssets.
  *
+ * @author Honza
  */
 @Repository(value = "financialAssetsRepository")
 public class FinancialAssetsRepositoryImpl extends AbstractRepository<FinancialAssets> implements FinancialAssetsRepository {
 
 	/**
-	 * Vytvori FinancialAssets
+	 * Creates the financial assets.
 	 */
 	@Override
-	public void createFinancialAssets(FinancialAssets financialAssets) {
+	public void createFinancialAssets(final FinancialAssets financialAssets) {
 		create(financialAssets);
 	}
-	
+
 	/**
-	 * Aktualizuje FinancialAssets
+	 * Update financial assets.
+	 * 
+	 * @return the financial assets
 	 */
 	@Override
-	public FinancialAssets updateFinancialAssets(FinancialAssets financialAssets) {
+	public FinancialAssets updateFinancialAssets(final FinancialAssets financialAssets) {
 		update(financialAssets);
 		return financialAssets;
 	}
 
 	/**
-	 * Da seznam FinancialAssests podle Avataru
+	 * Gets the financial assets by avatar.
+	 *
+	 * @return the financial assets by avatar
 	 */
 	@Override
-	public List<FinancialAssets> getFinancialAssetsByAvatar(Avatar avatar) {
+	public List<FinancialAssets> getFinancialAssetsByAvatar(final Avatar avatar) {
 
-		Map<String, Object> filter = new HashMap<String, Object>();
+		final Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("avatar", avatar);
-		
-		List<FinancialAssets> results = loadByFilter(filter, FinancialAssets.class);
+
+		final List<FinancialAssets> results = loadByFilter(filter, FinancialAssets.class);
 		if (results.size() != 0) {
-			return  results;
+			return results;
 		} else {
 			return null;
 		}
 	}
-
 
 }

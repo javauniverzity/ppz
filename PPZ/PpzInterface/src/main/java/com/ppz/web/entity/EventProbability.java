@@ -12,6 +12,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity for EventProbability data
+ * 
+ * @author Honza
  */
 
 @Entity
@@ -65,7 +67,7 @@ public class EventProbability {
 		return eventProbabilityId;
 	}
 
-	public void setEventProbabilityId(Long eventProbabilityId) {
+	public void setEventProbabilityId(final Long eventProbabilityId) {
 		this.eventProbabilityId = eventProbabilityId;
 	}
 
@@ -73,7 +75,7 @@ public class EventProbability {
 		return ageFrom;
 	}
 
-	public void setAgeFrom(Integer ageFrom) {
+	public void setAgeFrom(final Integer ageFrom) {
 		this.ageFrom = ageFrom;
 	}
 
@@ -81,7 +83,7 @@ public class EventProbability {
 		return ageTo;
 	}
 
-	public void setAgeTo(Integer ageTo) {
+	public void setAgeTo(final Integer ageTo) {
 		this.ageTo = ageTo;
 	}
 
@@ -89,7 +91,7 @@ public class EventProbability {
 		return valueFrom;
 	}
 
-	public void setValueFrom(BigDecimal valueFrom) {
+	public void setValueFrom(final BigDecimal valueFrom) {
 		this.valueFrom = valueFrom;
 	}
 
@@ -97,7 +99,7 @@ public class EventProbability {
 		return valueTo;
 	}
 
-	public void setValueTo(BigDecimal valueTo) {
+	public void setValueTo(final BigDecimal valueTo) {
 		this.valueTo = valueTo;
 	}
 
@@ -105,7 +107,7 @@ public class EventProbability {
 		return possibleEvent;
 	}
 
-	public void setPossibleEvent(PossibleEvent possibleEvent) {
+	public void setPossibleEvent(final PossibleEvent possibleEvent) {
 		this.possibleEvent = possibleEvent;
 	}
 
@@ -113,16 +115,13 @@ public class EventProbability {
 		return probability;
 	}
 
-	public void setProbability(Double probability) {
+	public void setProbability(final Double probability) {
 		this.probability = probability;
 	}
 
 	@Override
 	public String toString() {
-		return "EventProbability [eventProbabilityId=" + eventProbabilityId
-				+ ", ageFrom=" + ageFrom + ", ageTo=" + ageTo + ", valueFrom="
-				+ valueFrom + ", valueTo=" + valueTo + ", probability="
-				+ probability + ", possibleEvent=" + possibleEvent + "]";
+		return "EventProbability [eventProbabilityId=" + eventProbabilityId + ", ageFrom=" + ageFrom + ", ageTo=" + ageTo + ", valueFrom=" + valueFrom + ", valueTo=" + valueTo + ", probability=" + probability + ", possibleEvent=" + possibleEvent + "]";
 	}
 
 }

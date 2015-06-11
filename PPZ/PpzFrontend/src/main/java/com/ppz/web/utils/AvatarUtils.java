@@ -14,66 +14,69 @@ import com.ppz.web.entity.Avatar;
 /**
  * Pomocna trida pro avatara
  * 
- * @author David
+ * @author Honza
  *
  */
 public class AvatarUtils {
-	
+
 	static Logger logger = Logger.getLogger(AvatarUtils.class);
-	
+
 	// TODO odstranit a prevest na globalni locale
 	private static Locale loc = new Locale("cs", "CZ", "");
-	
+
 	/**
 	 * Nastaveni formatu meny
+	 * 
 	 * @param avatar
 	 * @return upravena penezni hodnota
 	 */
-	public static String getFormattedCurrency(BigDecimal number) {
-		NumberFormat nf = NumberFormat.getNumberInstance(loc);
-		DecimalFormat df = (DecimalFormat)nf;
+	public static String getFormattedCurrency(final BigDecimal number) {
+		final NumberFormat nf = NumberFormat.getNumberInstance(loc);
+		final DecimalFormat df = (DecimalFormat) nf;
 		df.applyPattern("###,###.###");
 		return df.format(number);
 	}
-	
+
 	/**
 	 * Nastaveni financi avatara
+	 * 
 	 * @param avatar
 	 * @return neformatovane financni prijmy avatara
 	 */
-	public static BigDecimal getIncomes(Avatar avatar) {
+	public static BigDecimal getIncomes(final Avatar avatar) {
 		BigDecimal incomes = new BigDecimal("0");
-		
-		List<BigDecimal> incomeItem = new ArrayList<BigDecimal>();
+
+		final List<BigDecimal> incomeItem = new ArrayList<BigDecimal>();
 		incomeItem.add(avatar.getIncome());
 		incomeItem.add(avatar.getOtherIncome());
-		
-		for (BigDecimal income : incomeItem) {
-			if(income != null) {
+
+		for (final BigDecimal income : incomeItem) {
+			if (income != null) {
 				incomes = incomes.add(income);
 			}
 		}
-		
+
 		return incomes;
 	}
-	
+
 	/**
 	 * @param avatar
 	 * @return formatovane financni prijmy avatara
 	 */
-	public static String getFormattedIncomes(Avatar avatar) {
+	public static String getFormattedIncomes(final Avatar avatar) {
 		return AvatarUtils.getFormattedCurrency(AvatarUtils.getIncomes(avatar));
 	}
-	
+
 	/**
 	 * Nastaveni vydaju avatara
+	 * 
 	 * @param avatar
 	 * @return neformatovane vydaje avatara
 	 */
-	public static BigDecimal getOutcomes(Avatar avatar) {
+	public static BigDecimal getOutcomes(final Avatar avatar) {
 		BigDecimal outcomes = new BigDecimal("0");
-		
-		List<BigDecimal> outcomeItem = new ArrayList<BigDecimal>();
+
+		final List<BigDecimal> outcomeItem = new ArrayList<BigDecimal>();
 		outcomeItem.add(avatar.getLeaseCosts());
 		outcomeItem.add(avatar.getEnergyCosts());
 		outcomeItem.add(avatar.getFoodCosts());
@@ -84,43 +87,44 @@ public class AvatarUtils {
 		outcomeItem.add(avatar.getPhoneCosts());
 		outcomeItem.add(avatar.getSmokeCosts());
 		outcomeItem.add(avatar.getOtherCosts());
-		
-		for (BigDecimal outcome : outcomeItem) {
-			if(outcome != null) {
+
+		for (final BigDecimal outcome : outcomeItem) {
+			if (outcome != null) {
 				outcomes = outcomes.add(outcome);
 			}
 		}
 
 		return outcomes;
 	}
-	
+
 	/**
 	 * @param avatar
 	 * @return formatovane vydaje avatara
 	 */
-	public static String getFormattedOutcomes(Avatar avatar) {
+	public static String getFormattedOutcomes(final Avatar avatar) {
 		return AvatarUtils.getFormattedCurrency(AvatarUtils.getOutcomes(avatar));
 	}
-	
+
 	/**
 	 * Nastaveni zjisteni rozdilu mezi prijmy a vydaji
+	 * 
 	 * @param avatar
 	 * @return neformatovane prijmy a vydaje a jejich rozdil
 	 */
-	public static BigDecimal getDistinct(Avatar avatar) {
-		BigDecimal income = AvatarUtils.getIncomes(avatar);
-		BigDecimal outcome = AvatarUtils.getOutcomes(avatar);
+	public static BigDecimal getDistinct(final Avatar avatar) {
+		final BigDecimal income = AvatarUtils.getIncomes(avatar);
+		final BigDecimal outcome = AvatarUtils.getOutcomes(avatar);
 		BigDecimal distinct = new BigDecimal("0");
-		
+
 		distinct = income.subtract(outcome);
 		return distinct;
 	}
-	
+
 	/**
 	 * @param avatar
 	 * @return formatovane prijmy a vydaje a jejich rozdil
 	 */
-	public static String getFormattedDistinct(Avatar avatar) {
+	public static String getFormattedDistinct(final Avatar avatar) {
 		return AvatarUtils.getFormattedCurrency(AvatarUtils.getDistinct(avatar));
 	}
 

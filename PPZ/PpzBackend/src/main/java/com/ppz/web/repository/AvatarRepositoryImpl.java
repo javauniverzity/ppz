@@ -6,8 +6,8 @@ import com.ppz.web.entity.Avatar;
 
 /**
  * Implementace repository avatara
- * @author David
- *
+ * 
+ * @author Honza
  */
 @Repository(value = "avatarRepository")
 public class AvatarRepositoryImpl extends AbstractRepository<Avatar> implements AvatarRepository {
@@ -15,6 +15,5 @@ public class AvatarRepositoryImpl extends AbstractRepository<Avatar> implements 
 	public Class<Avatar> getType() {
 		return Avatar.class;
 	}
-
 
 }
