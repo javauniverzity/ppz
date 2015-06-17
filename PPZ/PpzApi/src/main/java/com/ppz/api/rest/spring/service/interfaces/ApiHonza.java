@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.cxf.rs.security.cors.CrossOriginResourceSharing;
 
-import com.ppz.api.rest.entity.GetUsersResponse;
+import com.ppz.api.rest.entity.GetUserResponseHonza;
 
 /**
  * The Interface ApiHonza.
@@ -27,6 +27,6 @@ public interface ApiHonza {
 	 */
 	@POST
 	@Path("/getUsers/")
-	public GetUsersResponse getUsers(String username);
+	public GetUserResponseHonza getUser(String username);
 
 }

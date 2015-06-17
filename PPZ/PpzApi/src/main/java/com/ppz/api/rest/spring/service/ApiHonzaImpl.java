@@ -1,10 +1,8 @@
 package com.ppz.api.rest.spring.service;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ppz.api.rest.entity.GetUsersResponse;
+import com.ppz.api.rest.entity.GetUserResponseHonza;
 import com.ppz.api.rest.spring.service.interfaces.ApiHonza;
 import com.ppz.web.entity.User;
 import com.ppz.web.interfaces.service.UserService;
@@ -21,11 +19,10 @@ public class ApiHonzaImpl implements ApiHonza {
 	private UserService userService;
 
 	@Override
-	public GetUsersResponse getUsers(final String username) {
+	public GetUserResponseHonza getUser(final String username) {
 		final User user = userService.loadUserByUsername(username);
-		final GetUsersResponse r = new GetUsersResponse();
-		r.setUsers(new ArrayList<String>());
-		r.getUsers().add(user.getUsername());
+		final GetUserResponseHonza r = new GetUserResponseHonza();
+		r.setUser(user);
 		return r;
 	}
 
