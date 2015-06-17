@@ -27,6 +27,6 @@ public interface ApiHonza {
 	 */
 	@POST
 	@Path("/getUsers/")
-	public GetUsersResponse getUsers();
+	public GetUsersResponse getUsers(String username);
 
 }

@@ -21,8 +21,8 @@ public class ApiHonzaImpl implements ApiHonza {
 	private UserService userService;
 
 	@Override
-	public GetUsersResponse getUsers() {
-		final User user = userService.loadUserByUsername("admin");
+	public GetUsersResponse getUsers(final String username) {
+		final User user = userService.loadUserByUsername(username);
 		final GetUsersResponse r = new GetUsersResponse();
 		r.setUsers(new ArrayList<String>());
 		r.getUsers().add(user.getUsername());
