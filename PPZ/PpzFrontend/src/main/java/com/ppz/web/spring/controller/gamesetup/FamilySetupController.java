@@ -20,22 +20,33 @@ import com.ppz.web.entity.LinkedPerson;
 import com.ppz.web.interfaces.service.PpzService;
 import com.ppz.web.utils.WebUtils;
 
+/**
+ * Controller stránek pro správu rodiny.
+ * @author Marek
+ */
 @Controller
 @SessionAttributes(value="linkedPerson")
 public class FamilySetupController {
 
+	/** url pro editaci rodiny */
 	public static final String ACTION = "familySetup";
+	
+	/** url pro pøidání èlena rodiny */
 	public static final String ACTION_ADD = "familySetupAdd";
+	
+	/** url pro odtranìní èlena rodiny. */
 	public static final String ACTION_REMOVE = "familySetupRemove";
+	
+	/** url pro pøesmìrování. */
 	public static final String REDIRECT = "redirect:" + ACTION + ".html";
 	
+	/** The ppz service. */
 	@Autowired
 	PpzService ppzService;
 
 	/**
-	 * Zobrazeni stranky pro spravu clenu rodiny
-	 * 
-	 * @return
+	 * Zobrazeni stranky pro spravu clenu rodiny.
+	 *
 	 */
 	@RequestMapping(value = ACTION, method = RequestMethod.GET)
 	public String get(ModelMap model, HttpServletRequest request) {
@@ -63,10 +74,8 @@ public class FamilySetupController {
 	}
 	
 	/**
-	 * Priprava pro zalozeni noveho avatara, ten se vrati do obrazovky k vyplneni hodnot uzivatelem
-	 * 
-	 * @param model
-	 * @return
+	 * Priprava pro zalozeni noveho avatara, ten se vrati do obrazovky k vyplneni hodnot uzivatelem.
+	 *
 	 */
 	@RequestMapping(value = ACTION_ADD, method = RequestMethod.GET)
 	public String add(ModelMap model, HttpServletRequest request) {
@@ -92,10 +101,8 @@ public class FamilySetupController {
 	}
 
 	/**
-	 * UlozenÃ­ novÃ©ho avatara
-	 * 
-	 * @param avatar
-	 * @return
+	 * Uložení nového èlena rodiny
+	 *
 	 */
 	@RequestMapping(value = ACTION_ADD, method = RequestMethod.POST)
 	public String addSubmit(@ModelAttribute  LinkedPerson person, BindingResult result, ModelMap model, HttpServletRequest request) {
@@ -120,10 +127,8 @@ public class FamilySetupController {
 	}
 
 	/**
-	 * SmazÃ¡nÃ­ avatara
-	 * 
-	 * @param avatar
-	 * @return
+	 * Smazání èlena rodiny.
+	 *
 	 */
 	@RequestMapping(value = ACTION_REMOVE, method = RequestMethod.GET)
 	public String remove(@RequestParam(value = "id") Long id, HttpServletRequest request) {
@@ -136,9 +141,8 @@ public class FamilySetupController {
 	}
 	
 	/**
-	 * Editace volÃ¡na z dwr pomocÃ­ ajaxu
-	 * 
-	 * @return
+	 * Editace èlena rodiny.
+	 *
 	 */
 	public String edit(String id, String name) {
 		LinkedPerson lp = ppzService.getLinkedPerson(Long.parseLong(id));

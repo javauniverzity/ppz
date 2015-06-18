@@ -9,6 +9,7 @@ import com.ppz.web.entity.User;
 
 /**
  * Pomocna trida UserUtils, stara se o prihlaseni uzivatele.
+ * @author Marek
  */
 public class UserUtils {
 	

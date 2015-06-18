@@ -14,7 +14,7 @@ import com.ppz.web.entity.User;
 
 /**
  * Implementace repository uzivatel
- * @author pc
+ * @author Marek
  *
  */
 @Repository(value = "userRepository")
@@ -79,7 +79,6 @@ public class UserRepositoryImpl extends AbstractRepository<User> implements User
 			return null;
 		}
 
-		// dej GameCode s pozadovanym codem
 		GameCode gameCode = gameCodeRepository.getGameCode(code);
 
 		if (gameCode != null && gameCode.getUser() != null) {

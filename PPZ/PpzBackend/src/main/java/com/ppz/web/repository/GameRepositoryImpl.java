@@ -16,7 +16,7 @@ import com.ppz.web.entity.GameEvent;
 
 /**
  * Implementace repository entity Game
- * @author pc
+ * @author Marek
  */
 @Repository(value = "gameRepository")
 public class GameRepositoryImpl extends AbstractRepository<Game> implements GameRepository {
@@ -34,7 +34,7 @@ public class GameRepositoryImpl extends AbstractRepository<Game> implements Game
 	private GameEventRepository geRepository;
 
 	/**
-	 * Vyhledavani hry podle herniho kodu
+	 * Vyhledávání hry podle herního kodu
 	 */
 	@Override
 	public Game getGame(GameCode gameCodeToFind) {
@@ -77,7 +77,7 @@ public class GameRepositoryImpl extends AbstractRepository<Game> implements Game
 	}
 
 	/** 
-	 * Dej seznam vsech hernich udalosti
+	 * Vrací seznam všech herních udalostí
 	 */
 	@Override
 	public List<GameEvent> getLAllGameEvenList(Game game) {

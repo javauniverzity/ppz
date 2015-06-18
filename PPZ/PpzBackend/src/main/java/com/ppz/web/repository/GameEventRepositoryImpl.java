@@ -11,14 +11,14 @@ import com.ppz.web.entity.GameEvent;
 
 /**
  * Implementace repository enity GameEvent
- * @author pc
+ * @author Marek
  *
  */
 @Repository(value = "gameEventRepository")
 public class GameEventRepositoryImpl extends AbstractRepository<GameEvent> implements GameEventRepository {
 
 	/**
-	 * Dej seznam udalosti podle her
+	 * Vrací seznam udalostí dané hry
 	 */
 	@Override
 	public List<GameEvent> getGameEventListByGame(Game game, Long round) {

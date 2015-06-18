@@ -16,7 +16,8 @@ import javax.persistence.Transient;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * Entity for Game data
+ * Entity s daty pro konkrétní hru
+ * @author Marek
  */
 
 @Entity
@@ -29,7 +30,7 @@ public class Game {
 	public static final Integer GAME_STATUS_FINISHED = 2;
 
 	/**
-	 * Game ID
+	 * ID hry
 	 */
 	@Id
 	@GenericGenerator(name = "generator", strategy = "identity")
@@ -37,38 +38,38 @@ public class Game {
 	private Long gameId;
 
 	/**
-	 * Game name
+	 * jméno hry
 	 */
 	private String name;
 
 	/**
-	 * Date of game last play
+	 * Datum kdy byla hra naposledy hrána
 	 */
 	private Date lastPlayDate;
 
 	/**
-	 * Game status GAME_STATUS_IN_PLAY | GAME_STATUS_FINISHED
+	 * Status hry GAME_STATUS_IN_PLAY | GAME_STATUS_FINISHED
 	 */
 	private Integer status;
 
 	/**
-	 * Counter of played game rounds till now
+	 * Poèet odehraných kol
 	 */
 	private Long roundPlayed;
 
 	/**
-	 * Actual date from game
+	 * Aktuální datum ve høe
 	 */
 	private Date actualDate;
 
 	/**
-	 * Avatar selected for this game
+	 * Avatar zvolený pro tuto hru
 	 */
 	@OneToOne(cascade = CascadeType.ALL, optional = true)
 	private Avatar avatar;
 
 	/**
-	 * List of occur game events
+	 * List herních událostí
 	 */
 	@Transient
 	private List<GameEvent> gameEventList;
